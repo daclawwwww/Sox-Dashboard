@@ -1,6 +1,7 @@
 import streamlit as st
 import yfinance as yf
 import pandas as pd
+st.write("App started...")
 from indicators.rsi import compute_rsi
 from indicators.macd import compute_macd
 from indicators.roc import compute_roc
@@ -88,6 +89,7 @@ elif semi_sales_yoy_growth < 0:
 
 # PMI scoring (live via FRED)
 pmi_value = get_ism_pmi()
+st.write("PMI fetched:", pmi_value)
 if isinstance(pmi_value, float):
     st.metric("ISM PMI (NAPMPI)", pmi_value)
     if pmi_value > 50:
