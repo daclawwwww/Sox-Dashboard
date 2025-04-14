@@ -51,3 +51,50 @@ try:
 
 except Exception as e:
     st.error(f"Error computing indicators: {e}")
+    st.subheader("Signal Score")
+
+# Simulated Semiconductor Sales Growth (can be replaced with CSV/API later)
+semi_sales_yoy_growth = 6.5  # Example: +6.5% YoY
+
+# ---- Scoring ----
+score = 0
+
+# RSI scoring
+if isinstance(latest_rsi, float):
+    score += 1 if latest_rsi > 55 else -1 if latest_rsi < 45 else 0
+
+# MACD scoring
+if isinstance(latest_macd, float):
+    score += 1 if latest_macd > 0.2 else -1 if latest_macd < -0.2 else 0
+
+# ROC scoring
+if isinstance(latest_roc, float):
+    score += 1 if latest_roc > 5 else -1 if latest_roc < -2 else 0
+
+# Relative Strength scoring (use trend of last 5 days)
+try:
+    rel_trend = relative_strength.tail(5).diff().mean()
+    if rel_trend > 0.001:
+        score += 1
+    elif rel_trend < -0.001:
+        score -= 1
+except:
+    pass  # Keep score unchanged if data is bad
+
+# Semi Sales scoring
+if semi_sales_yoy_growth > 0:
+    score += 1
+elif semi_sales_yoy_growth < 0:
+    score -= 1
+
+# ---- Final Signal ----
+if score >= 3:
+    signal = "BUY"
+elif score <= 0:
+    signal = "SELL"
+else:
+    signal = "HOLD"
+
+st.write(f"**Total Score:** {score}")
+st.success(f"**Signal: {signal}**")
+    
