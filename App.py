@@ -27,14 +27,21 @@ else:
 st.subheader("Momentum Indicators")
 
 try:
-    rsi = compute_rsi(df_soxx['Close'])
-    macd_hist = compute_macd(df_soxx['Close'])
-    roc_3m = compute_roc(df_soxx['Close'], 63)
-    relative_strength = compute_relative_strength(df_soxx['Close'], df_spy['Close'])
+    close = df_soxx['Close'].dropna()
+    spy_close = df_spy['Close'].dropna()
 
-    st.metric("RSI (14)", round(rsi.iloc[-1], 2))
-    st.metric("MACD Histogram", round(macd_hist.iloc[-1], 2))
-    st.metric("3-Month ROC (%)", round(roc_3m.iloc[-1], 2))
-    st.metric("SOXX/SPY Relative Strength", round(relative_strength.iloc[-1], 2))
+    if len(close) == 0 or len(spy_close) == 0:
+        raise ValueError("Close prices are empty after dropping NaNs")
+
+    rsi = compute_rsi(close)
+    macd_hist = compute_macd(close)
+    roc_3m = compute_roc(close, 63)
+    relative_strength = compute_relative_strength(close, spy_close)
+
+    st.metric("RSI (14)", float(round(rsi.dropna().iloc[-1], 2)))
+    st.metric("MACD Histogram", float(round(macd_hist.dropna().iloc[-1], 2)))
+    st.metric("3-Month ROC (%)", float(round(roc_3m.dropna().iloc[-1], 2)))
+    st.metric("SOXX/SPY Relative Strength", float(round(relative_strength.dropna().iloc[-1], 2)))
+
 except Exception as e:
     st.error(f"Error computing indicators: {e}")
