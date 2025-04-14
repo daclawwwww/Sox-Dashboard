@@ -7,8 +7,8 @@ def get_ism_pmi():
     try:
         fred_key = os.environ.get("FRED_API_KEY")
         fred = Fred(api_key=fred_key)
-        pmi_series = fred.get_series('NAPMPI')  # ISM PMI Composite
+        pmi_series = fred.get_series('NAPM')  # Legacy PMI series (still active)
         latest = pmi_series.dropna().iloc[-1]
-        return float(round(latest, 2))
+        return round(float(latest), 2)
     except Exception as e:
-        return f"Error fetching PMI (NAPMPI): {e}"
+        return f"Error fetching PMI (NAPM): {e}"
