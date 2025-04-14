@@ -84,7 +84,7 @@ try:
 except:
     pass  # Keep score unchanged if data is bad
 pmi_value = get_ism_pmi()
-
+st.write("PMI VALUE (raw):", pmi_value)
 if isinstance(pmi_value, float):
     st.metric("ISM New Orders Index (PMI Proxy)", pmi_value)
     if pmi_value > 50:
