@@ -87,13 +87,13 @@ if semi_sales_yoy_growth > 0:
 elif semi_sales_yoy_growth < 0:
     score -= 1
 
-# PMI scoring (live via FRED)
+# Tech Orders (PMI Proxy) Scoring
 pmi_value = get_ism_pmi()
 if isinstance(pmi_value, float):
-    st.metric("ISM PMI (NAPMPI)", pmi_value)
-    if pmi_value > 50:
+    st.metric("New Orders: Tech Equipment (A34SNO)", pmi_value)
+    if pmi_value > 25000:
         score += 1
-    elif pmi_value < 48:
+    elif pmi_value < 24000:
         score -= 1
 else:
     st.warning(pmi_value)
