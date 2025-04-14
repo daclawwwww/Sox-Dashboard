@@ -1,3 +1,4 @@
+import streamlit as st
 st.write("App loaded successfully")
 from macro.semiconductor_leads import get_macro_signal_score
 import streamlit as st
