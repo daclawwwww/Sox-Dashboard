@@ -7,8 +7,8 @@ def get_ism_pmi():
     try:
         fred_key = os.environ.get("FRED_API_KEY")
         fred = Fred(api_key=fred_key)
-        new_orders_index = fred.get_series('NAPMNOIR')  # Revised ISM New Orders Index
-        latest = new_orders_index.dropna().iloc[-1]
+        pmi_series = fred.get_series('NAPMPI')  # ISM PMI Composite
+        latest = pmi_series.dropna().iloc[-1]
         return float(round(latest, 2))
     except Exception as e:
-        return f"Error fetching PMI proxy: {e}"
+        return f"Error fetching PMI (NAPMPI): {e}"
