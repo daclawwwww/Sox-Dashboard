@@ -81,7 +81,16 @@ try:
         score -= 1
 except:
     pass  # Keep score unchanged if data is bad
+pmi_value = get_ism_pmi()
 
+if isinstance(pmi_value, float):
+    st.metric("Latest ISM PMI", pmi_value)
+    if pmi_value > 50:
+        score += 1
+    elif pmi_value < 48:
+        score -= 1
+else:
+    st.warning(pmi_value)
 # Semi Sales scoring
 if semi_sales_yoy_growth > 0:
     score += 1
