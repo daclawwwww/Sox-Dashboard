@@ -1,4 +1,4 @@
-fromimport os
+import os
 from fredapi import Fred
 
 def get_ism_pmi():
