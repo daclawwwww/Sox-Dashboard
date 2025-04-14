@@ -1,3 +1,4 @@
+from macro.semiconductor_leads import get_macro_signal_score
 import streamlit as st
 import yfinance as yf
 import pandas as pd
@@ -86,6 +87,19 @@ if semi_sales_yoy_growth > 0:
     score += 1
 elif semi_sales_yoy_growth < 0:
     score -= 1
+st.subheader("Macro Indicator Simulation")
+
+macro_trend = st.radio("Simulate macro conditions:", ["strong", "neutral", "weak"], index=1)
+macro_result = get_macro_signal_score(simulate=macro_trend)
+
+st.write("**Macro Indicator Scores:**")
+for k, v in macro_result["indicators"].items():
+    st.write(f"{k}: {'+1' if v == 1 else '0' if v == 0 else '-1'}")
+
+st.write(f"**Macro Composite Score:** {macro_result['macro_score']}")
+
+# Add to total signal score
+score += macro_result["macro_score"]
 
 # ---- Final Signal ----
 if score >= 3:
