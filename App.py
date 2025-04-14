@@ -10,6 +10,7 @@ from indicators.roc import compute_roc
 from indicators.relative_strength import compute_relative_strength
 from utils.data_loader import load_price_data
 from macro.pmi_fetcher import get_ism_pmi
+st.write("PMI VALUE (raw):", pmi_value)
 st.title("SOXX Momentum Dashboard")
 
 # Load Data
