@@ -1,7 +1,8 @@
 import streamlit as st
+st.set_page_config(page_title="SOXX Momentum Dashboard", layout="wide")
+
 import yfinance as yf
 import pandas as pd
-st.write("App started...")
 from indicators.rsi import compute_rsi
 from indicators.macd import compute_macd
 from indicators.roc import compute_roc
@@ -10,7 +11,6 @@ from utils.data_loader import load_price_data
 from macro.semiconductor_leads import get_macro_signal_score
 from macro.pmi_fetcher import get_ism_pmi
 
-st.set_page_config(page_title="SOXX Momentum Dashboard", layout="wide")
 st.title("SOXX Momentum Dashboard")
 
 # Load Data
@@ -89,7 +89,6 @@ elif semi_sales_yoy_growth < 0:
 
 # PMI scoring (live via FRED)
 pmi_value = get_ism_pmi()
-st.write("PMI fetched:", pmi_value)
 if isinstance(pmi_value, float):
     st.metric("ISM PMI (NAPMPI)", pmi_value)
     if pmi_value > 50:
