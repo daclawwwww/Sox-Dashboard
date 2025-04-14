@@ -13,15 +13,12 @@ from macro.pmi_fetcher import get_ism_pmi
 
 st.title("SOXX Momentum Dashboard")
 
-# --- HEADER SIGNAL OUTPUT ---
 score = 0
 signal = "N/A"
 
-# Load price data
 with st.spinner("Loading market data..."):
     df_soxx, df_spy = load_price_data()
 
-# Compute indicators
 try:
     close = df_soxx['Close'].dropna()
     spy_close = df_spy['Close'].dropna()
@@ -30,15 +27,13 @@ try:
     roc_3m = compute_roc(close, 63).dropna()
     relative_strength = compute_relative_strength(close, spy_close).dropna()
 
-    latest_rsi = round(float(rsi.iloc[-1]), 2)
-    latest_macd = round(float(macd_hist.iloc[-1]), 2)
-    latest_roc = round(float(roc_3m.iloc[-1]), 2)
-    latest_rel = round(float(relative_strength.iloc[-1]), 2)
-
+    latest_rsi = round(float(rsi.iloc[-1]), 2) if not rsi.empty else "N/A"
+    latest_macd = round(float(macd_hist.iloc[-1]), 2) if not macd_hist.empty else "N/A"
+    latest_roc = round(float(roc_3m.iloc[-1]), 2) if not roc_3m.empty else "N/A"
+    latest_rel = round(float(relative_strength.iloc[-1]), 2) if not relative_strength.empty else "N/A"
 except Exception as e:
     st.error(f"Error calculating indicators: {e}")
 
-# --- SCORECARD SECTION ---
 st.subheader("Signal Scorecard")
 
 with st.expander("1. Technical Indicators", expanded=True):
@@ -48,41 +43,35 @@ with st.expander("1. Technical Indicators", expanded=True):
     col3.metric("3-Month ROC (%)", latest_roc)
     col4.metric("Rel Strength (SOXX/SPY)", latest_rel)
 
-    if latest_rsi > 55:
-        score += 1
-        st.write("RSI Score: +1")
-    elif latest_rsi < 45:
-        score -= 1
-        st.write("RSI Score: -1")
+    if isinstance(latest_rsi, float):
+        score += 1 if latest_rsi > 55 else -1 if latest_rsi < 45 else 0
+        st.write(f"RSI Score: {'+1' if latest_rsi > 55 else '-1' if latest_rsi < 45 else '0'}")
 
-    if latest_macd > 0.2:
-        score += 1
-        st.write("MACD Score: +1")
-    elif latest_macd < -0.2:
-        score -= 1
-        st.write("MACD Score: -1")
+    if isinstance(latest_macd, float):
+        score += 1 if latest_macd > 0.2 else -1 if latest_macd < -0.2 else 0
+        st.write(f"MACD Score: {'+1' if latest_macd > 0.2 else '-1' if latest_macd < -0.2 else '0'}")
 
-    if latest_roc > 5:
-        score += 1
-        st.write("ROC Score: +1")
-    elif latest_roc < -2:
-        score -= 1
-        st.write("ROC Score: -1")
+    if isinstance(latest_roc, float):
+        score += 1 if latest_roc > 5 else -1 if latest_roc < -2 else 0
+        st.write(f"ROC Score: {'+1' if latest_roc > 5 else '-1' if latest_roc < -2 else '0'}")
 
-    try:
-        rel_trend = relative_strength.tail(5).diff().mean()
-        if rel_trend > 0.001:
-            score += 1
-            st.write("Rel Strength Score: +1")
-        elif rel_trend < -0.001:
-            score -= 1
-            st.write("Rel Strength Score: -1")
-    except:
-        pass
+    if isinstance(latest_rel, float):
+        try:
+            rel_trend = relative_strength.tail(5).diff().mean()
+            if rel_trend > 0.001:
+                score += 1
+                st.write("Rel Strength Score: +1")
+            elif rel_trend < -0.001:
+                score -= 1
+                st.write("Rel Strength Score: -1")
+            else:
+                st.write("Rel Strength Score: 0")
+        except:
+            st.write("Relative strength trend not available.")
 
 with st.expander("2. Macro Indicators", expanded=True):
     pmi_value = get_ism_pmi()
-    semi_sales_yoy_growth = 6.5  # Placeholder
+    semi_sales_yoy_growth = 6.5
 
     col1, col2 = st.columns(2)
     col1.metric("Tech Orders (A34SNO)", pmi_value)
@@ -108,7 +97,6 @@ with st.expander("2. Macro Indicators", expanded=True):
     st.write(f"Simulated Macro Composite Score: {macro_result['macro_score']}")
     score += macro_result["macro_score"]
 
-# --- FINAL SIGNAL DISPLAY ---
 st.subheader("Final Signal")
 if score >= 3:
     signal = "BUY"
@@ -120,7 +108,6 @@ else:
 st.metric("Total Score", score)
 st.success(f"Trading Signal: {signal}")
 
-# --- METHODOLOGY ---
 with st.expander("Methodology", expanded=False):
     st.markdown("""
     **Signal Scorecard Overview**
