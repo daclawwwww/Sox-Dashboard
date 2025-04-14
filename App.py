@@ -84,7 +84,7 @@ except:
 pmi_value = get_ism_pmi()
 
 if isinstance(pmi_value, float):
-    st.metric("Latest ISM PMI", pmi_value)
+    st.metric("ISM New Orders Index (PMI Proxy)", pmi_value)
     if pmi_value > 50:
         score += 1
     elif pmi_value < 48:
