@@ -30,18 +30,24 @@ try:
     close = df_soxx['Close'].dropna()
     spy_close = df_spy['Close'].dropna()
 
-    if len(close) == 0 or len(spy_close) == 0:
-        raise ValueError("Close prices are empty after dropping NaNs")
+    if close.empty or spy_close.empty:
+        raise ValueError("Price data is missing or empty.")
 
-    rsi = compute_rsi(close)
-    macd_hist = compute_macd(close)
-    roc_3m = compute_roc(close, 63)
-    relative_strength = compute_relative_strength(close, spy_close)
+    rsi = compute_rsi(close).dropna()
+    macd_hist = compute_macd(close).dropna()
+    roc_3m = compute_roc(close, 63).dropna()
+    relative_strength = compute_relative_strength(close, spy_close).dropna()
 
-    st.metric("RSI (14)", float(round(rsi.dropna().iloc[-1], 2)))
-    st.metric("MACD Histogram", float(round(macd_hist.dropna().iloc[-1], 2)))
-    st.metric("3-Month ROC (%)", float(round(roc_3m.dropna().iloc[-1], 2)))
-    st.metric("SOXX/SPY Relative Strength", float(round(relative_strength.dropna().iloc[-1], 2)))
+    # Use safe fallback if series is still empty
+    latest_rsi = float(round(rsi.iloc[-1], 2)) if not rsi.empty else "N/A"
+    latest_macd = float(round(macd_hist.iloc[-1], 2)) if not macd_hist.empty else "N/A"
+    latest_roc = float(round(roc_3m.iloc[-1], 2)) if not roc_3m.empty else "N/A"
+    latest_rel = float(round(relative_strength.iloc[-1], 2)) if not relative_strength.empty else "N/A"
+
+    st.metric("RSI (14)", latest_rsi)
+    st.metric("MACD Histogram", latest_macd)
+    st.metric("3-Month ROC (%)", latest_roc)
+    st.metric("SOXX/SPY Relative Strength", latest_rel)
 
 except Exception as e:
     st.error(f"Error computing indicators: {e}")
