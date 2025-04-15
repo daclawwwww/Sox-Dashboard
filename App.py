@@ -22,6 +22,11 @@ from utils.book_to_bill_loader import (
 from macro.semiconductor_leads import get_macro_signal_score
 from macro.pmi_fetcher import get_ism_pmi
 from macro.capex_proxy import get_capex_proxy
+from utils.nand_loader import (
+    load_nand_prices,
+    get_latest_nand_price,
+    calculate_nand_score,
+    calculate_nand_trend_score)
 st.title("SOXX Momentum Dashboard")
 
 score = 0
@@ -143,7 +148,20 @@ with st.expander("4. SEMI Book-to-Bill Score", expanded=True):
         st.warning("Book-to-Bill data unavailable.")
 
     score += b2b_score
+with st.expander("6. NAND Flash Score", expanded=True):
+    nand_df = load_nand_prices()
+    latest_nand = get_latest_nand_price(nand_df)
+    nand_score = calculate_nand_score(latest_nand)
+    nand_trend_score = calculate_nand_trend_score(nand_df)
 
+    if latest_nand:
+        st.metric("Latest NAND Price", f"${latest_nand:.3f}")
+        st.write(f"NAND Price Score: {'+1' if nand_score == 1 else '-1' if nand_score == -1 else '0'}")
+        st.write(f"NAND Trend Score (4-week): {'+1' if nand_trend_score == 1 else '-1' if nand_trend_score == -1 else '0'}")
+    else:
+        st.warning("NAND price data unavailable.")
+
+    score += nand_score + nand_trend_score
 st.subheader("Final Signal")
 if score >= 3:
     signal = "BUY"
