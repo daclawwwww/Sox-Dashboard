@@ -10,7 +10,7 @@ from indicators.relative_strength import compute_relative_strength
 from utils.data_loader import load_price_data
 from macro.semiconductor_leads import get_macro_signal_score
 from macro.pmi_fetcher import get_ism_pmi
-
+from utils.dram_loader import load_dram_prices, get_latest_dram_price, calculate_dram_score
 st.title("SOXX Momentum Dashboard")
 
 score = 0
@@ -96,7 +96,18 @@ with st.expander("2. Macro Indicators", expanded=True):
     macro_result = get_macro_signal_score(simulate=macro_trend)
     st.write(f"Simulated Macro Composite Score: {macro_result['macro_score']}")
     score += macro_result["macro_score"]
+with st.expander("3. DRAM Price Score", expanded=True):
+    dram_df = load_dram_prices()
+    latest_dram_price = get_latest_dram_price(dram_df)
+    dram_score = calculate_dram_score(latest_dram_price)
 
+    if latest_dram_price:
+        st.metric("Latest DRAM Price", f"${latest_dram_price:.3f}")
+        st.write(f"DRAM Score: {'+1' if dram_score == 1 else '-1' if dram_score == -1 else '0'}")
+    else:
+        st.warning("DRAM price data unavailable.")
+
+    score += dram_score
 st.subheader("Final Signal")
 if score >= 3:
     signal = "BUY"
