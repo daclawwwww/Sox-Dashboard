@@ -10,7 +10,11 @@ from indicators.relative_strength import compute_relative_strength
 from utils.data_loader import load_price_data
 from macro.semiconductor_leads import get_macro_signal_score
 from macro.pmi_fetcher import get_ism_pmi
-from utils.dram_loader import load_dram_prices, get_latest_dram_price, calculate_dram_score
+from utils.dram_loader import (
+    load_dram_prices,
+    get_latest_dram_price,
+    calculate_dram_score,
+    calculate_dram_trend_score)
 st.title("SOXX Momentum Dashboard")
 
 score = 0
@@ -100,12 +104,16 @@ with st.expander("3. DRAM Price Score", expanded=True):
     dram_df = load_dram_prices()
     latest_dram_price = get_latest_dram_price(dram_df)
     dram_score = calculate_dram_score(latest_dram_price)
+    dram_trend_score = calculate_dram_trend_score(dram_df)
 
     if latest_dram_price:
         st.metric("Latest DRAM Price", f"${latest_dram_price:.3f}")
-        st.write(f"DRAM Score: {'+1' if dram_score == 1 else '-1' if dram_score == -1 else '0'}")
+        st.write(f"DRAM Price Score: {'+1' if dram_score == 1 else '-1' if dram_score == -1 else '0'}")
+        st.write(f"DRAM Trend Score (4-week): {'+1' if dram_trend_score == 1 else '-1' if dram_trend_score == -1 else '0'}")
     else:
         st.warning("DRAM price data unavailable.")
+
+    score += dram_score + dram_trend_score
 
     score += dram_score
 st.subheader("Final Signal")
