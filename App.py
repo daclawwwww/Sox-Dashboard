@@ -8,17 +8,20 @@ from indicators.macd import compute_macd
 from indicators.roc import compute_roc
 from indicators.relative_strength import compute_relative_strength
 from utils.data_loader import load_price_data
-from macro.semiconductor_leads import get_macro_signal_score
-from macro.pmi_fetcher import get_ism_pmi
 from utils.dram_loader import (
     load_dram_prices,
     get_latest_dram_price,
     calculate_dram_score,
-    calculate_dram_trend_score)
+    calculate_dram_trend_score
+)
 from utils.book_to_bill_loader import (
     load_book_to_bill,
     get_latest_b2b,
-    calculate_b2b_score)
+    calculate_b2b_score
+)
+from macro.semiconductor_leads import get_macro_signal_score
+from macro.pmi_fetcher import get_ism_pmi
+
 st.title("SOXX Momentum Dashboard")
 
 score = 0
@@ -104,6 +107,7 @@ with st.expander("2. Macro Indicators", expanded=True):
     macro_result = get_macro_signal_score(simulate=macro_trend)
     st.write(f"Simulated Macro Composite Score: {macro_result['macro_score']}")
     score += macro_result["macro_score"]
+
 with st.expander("3. DRAM Price Score", expanded=True):
     dram_df = load_dram_prices()
     latest_dram_price = get_latest_dram_price(dram_df)
@@ -119,7 +123,6 @@ with st.expander("3. DRAM Price Score", expanded=True):
 
     score += dram_score + dram_trend_score
 
-    score += dram_score
 with st.expander("4. SEMI Book-to-Bill Score", expanded=True):
     b2b_df = load_book_to_bill()
     latest_b2b = get_latest_b2b(b2b_df)
@@ -157,6 +160,9 @@ with st.expander("Methodology", expanded=False):
     - Tech Orders (FRED A34SNO): +1 if > $25B, -1 if < $24B
     - Semi Sales Growth: +1 if positive YoY, -1 if negative
     - Simulated Macro Trend: +1 for strong, 0 neutral, -1 weak
+    - DRAM Price: +1 if > $4.00, -1 if < $3.50
+    - DRAM Trend: +1 if rising, -1 if falling
+    - SEMI Book-to-Bill: +1 if > 1.05, -1 if < 0.95
 
     **Signal Rules**:
     - BUY: Total Score â¥ 3
