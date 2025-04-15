@@ -21,7 +21,7 @@ from utils.book_to_bill_loader import (
 )
 from macro.semiconductor_leads import get_macro_signal_score
 from macro.pmi_fetcher import get_ism_pmi
-
+from macro.capex_proxy import get_capex_proxy
 st.title("SOXX Momentum Dashboard")
 
 score = 0
@@ -95,7 +95,15 @@ with st.expander("2. Macro Indicators", expanded=True):
         elif pmi_value < 24000:
             score -= 1
             st.write("Tech Orders Score: -1")
-
+with st.expander("5. CapEx Proxy Score (FRED: NEWORDER)", expanded=True):
+    capex = get_capex_proxy()
+    if "error" in capex:
+        st.warning(f"CapEx fetch error: {capex['error']}")
+    else:
+        st.metric("Latest NEWORDER", f"{capex['latest']:,}")
+        st.write(f"Previous Value: {capex['prev']:,}")
+        st.write(f"CapEx Score: {'+1' if capex['score'] == 1 else '-1' if capex['score'] == -1 else '0'}")
+        score += capex["score"]
     if semi_sales_yoy_growth > 0:
         score += 1
         st.write("Semi Sales Score: +1")
