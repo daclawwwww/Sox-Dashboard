@@ -15,6 +15,10 @@ from utils.dram_loader import (
     get_latest_dram_price,
     calculate_dram_score,
     calculate_dram_trend_score)
+from utils.book_to_bill_loader import (
+    load_book_to_bill,
+    get_latest_b2b,
+    calculate_b2b_score)
 st.title("SOXX Momentum Dashboard")
 
 score = 0
@@ -116,6 +120,19 @@ with st.expander("3. DRAM Price Score", expanded=True):
     score += dram_score + dram_trend_score
 
     score += dram_score
+with st.expander("4. SEMI Book-to-Bill Score", expanded=True):
+    b2b_df = load_book_to_bill()
+    latest_b2b = get_latest_b2b(b2b_df)
+    b2b_score = calculate_b2b_score(latest_b2b)
+
+    if latest_b2b:
+        st.metric("Latest Book-to-Bill Ratio", f"{latest_b2b:.2f}")
+        st.write(f"Book-to-Bill Score: {'+1' if b2b_score == 1 else '-1' if b2b_score == -1 else '0'}")
+    else:
+        st.warning("Book-to-Bill data unavailable.")
+
+    score += b2b_score
+
 st.subheader("Final Signal")
 if score >= 3:
     signal = "BUY"
