@@ -1,3 +1,5 @@
+from utils.observations import frame_observation, weekly_trend
+import math
 import pandas as pd
 
 def load_dram_prices(csv_path='data/dram_prices.csv'):
@@ -10,14 +12,14 @@ def load_dram_prices(csv_path='data/dram_prices.csv'):
         print(f"Error loading DRAM prices: {e}")
         return pd.DataFrame()
 
-def get_latest_dram_price(df):
-    if df.empty:
-        return None
-    return df['DRAM_Price'].iloc[-1]
+def get_latest_dram_price(df, as_of=None):
+    obs = frame_observation(df, "DRAM_Price", 14, as_of)
+    return obs.value if obs.eligible and obs.value > 0 else None
+
 
 def calculate_dram_score(latest_price, threshold_high=4.0, threshold_low=3.5):
-    if latest_price is None:
-        return 0
+    if latest_price is None or not math.isfinite(latest_price):
+        return None
     if latest_price > threshold_high:
         return 1
     elif latest_price < threshold_low:
@@ -25,14 +27,5 @@ def calculate_dram_score(latest_price, threshold_high=4.0, threshold_low=3.5):
     else:
         return 0
 
-def calculate_dram_trend_score(df, lookback_weeks=4):
-    if df.empty or len(df) < lookback_weeks + 1:
-        return 0
-    recent_prices = df['DRAM_Price'].tail(lookback_weeks + 1)
-    trend = recent_prices.diff().mean()
-    if trend > 0.01:
-        return 1
-    elif trend < -0.01:
-        return -1
-    else:
-        return 0
+def calculate_dram_trend_score(df, lookback_weeks=4, as_of=None):
+    return weekly_trend(df, "DRAM_Price", 0.01, lookback_weeks, as_of)
