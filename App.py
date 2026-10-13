@@ -101,6 +101,33 @@ c2.metric("MACD histogram", f"{last.MACD_hist:.2f}")
 c3.metric("SOXX 63-session return", f"{last.ROC63:+.1f}%")
 c4.metric("20-session relative return", f"{last.RS20:+.1f}%")
 
+
+st.subheader("Historical SOXL Signal Backtest")
+from backtest import evaluate, event_sample
+historical, stats = evaluate(data)
+st.caption("Yahoo Finance adjusted daily closes via yfinance. Signals are computed at close t; simulated entry at adjusted close t+1. Exits 21 or 63 sessions later. Returns are percentage changes, not annualized.")
+st.dataframe(stats, use_container_width=True, hide_index=True)
+events21 = event_sample(historical, 21)
+events63 = event_sample(historical, 63)
+c1, c2 = st.columns(2)
+c1.metric("Non-overlapping 21-session favorable entries", len(events21))
+c2.metric("Non-overlapping 63-session favorable entries", len(events63))
+if len(events21):
+    st.write("**Non-overlapping favorable-entry outcomes (21 sessions)**")
+    st.dataframe(events21.tail(20), use_container_width=True)
+else:
+    st.warning("Not enough favorable-entry observations with complete forward returns.")
+with st.expander("How to interpret the backtest"):
+    st.markdown("""
+    - The table tests conditional forward returns after **every eligible daily signal**; neighboring observations overlap substantially and are **not independent trades**. Do not treat the hit rate as statistically validated.
+    - 'All sessions' is the unconditional SOXL comparison using the **same date sample**. This is not a buy-and-hold trading simulation.
+    - The non-overlapping favorable-entry sample skips later signals while a prior signal's horizon is open. This reduces overlap, but is sensitive to the initial date and may produce very few observations.
+    - Entry is modeled at **the next daily close**, not the next open; real fills, intraday path, costs, spreads, taxes and slippage are not modeled. No short selling is assumed.
+    - Indicator parameters and cutoffs were chosen heuristically, without train/test splitting. Results are **in-sample** and may be overfit even when they appear profitable.
+    - Two years of data (including indicator warm-up) is a **limited sample**. Evaluate longer periods and bear markets before using these results for allocations.
+    - Adjusted prices reflect vendor corporate-action adjustments and do not guarantee executable historical fills. Independently verify anomalous bars and split/dividend dates before trading.
+    """)
+
 st.subheader("Price History")
 st.line_chart(data[["SOXX", "MA50", "MA200"]].tail(252))
 st.subheader("SOXL Price History")
