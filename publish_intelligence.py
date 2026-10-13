@@ -12,9 +12,9 @@ from pathlib import Path
 QUERIES = {
  "AI capex": 'Microsoft Amazon Google Meta AI capex data center chips',
  "Semiconductor cycle": 'DRAM NAND prices memory semiconductor inventory',
- "Earnings revisions": 'Nvidia TSMC Micron Broadcom AMD earnings guidance estimates',
- "Competition": 'China semiconductor restrictions custom AI ASIC competition',
- "Macro geopolitics": 'semiconductor export controls Taiwan tariffs interest rates'
+ "Earnings revisions": 'semiconductor earnings guidance',
+ "Competition": 'semiconductor China AI chip competition',
+ "Macro geopolitics": 'chip export controls Taiwan'
 }
 ROOT=Path(__file__).resolve().parent
 
