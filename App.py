@@ -10,7 +10,7 @@ st.caption("SOXX drives the sector signal; SOXL is a 3x daily leveraged tactical
 def get_prices():
     result = {}
     for symbol in ("SOXX", "SOXL", "SPY"):
-        df = yf.download(symbol, period="2y", interval="1d", auto_adjust=True, progress=False, threads=False)
+        df = yf.download(symbol, period="10y", interval="1d", auto_adjust=True, progress=False, threads=False)
         if df.empty:
             raise ValueError(f"No prices returned for {symbol}.")
         if isinstance(df.columns, pd.MultiIndex):
@@ -102,10 +102,18 @@ c3.metric("SOXX 63-session return", f"{last.ROC63:+.1f}%")
 c4.metric("20-session relative return", f"{last.RS20:+.1f}%")
 
 
+st.subheader("Strategy Comparison: 10-Year History")
+st.caption("Predeclared rules: momentum, correction within an uptrend, combined, and buy-and-hold. Signals at today's close, exposure from the following daily return. Assumed 10 bps per side of turnover. Zero cash yield; taxes and execution costs not captured. Last 30% is a chronological holdout, not a randomized sample.")
+try:
+    daily_pnl, comparison = strategy_report(historical if "historical" in globals() else evaluate(data)[0])
+    st.dataframe(comparison, use_container_width=True, hide_index=True)
+    st.line_chart((1 + daily_pnl).cumprod())
+except Exception as exc:
+    st.warning(f"Strategy backtest unavailable: {exc}")
 st.subheader("Historical SOXL Signal Backtest")
-from backtest import evaluate, event_sample
+from backtest import evaluate, event_sample, strategy_report
 historical, stats = evaluate(data)
-st.caption("Yahoo Finance adjusted daily closes via yfinance. Signals are computed at close t; simulated entry at adjusted close t+1. Exits 21 or 63 sessions later. Returns are percentage changes, not annualized.")
+st.caption("Overlapping forward-return study (not individual trades). Yahoo Finance adjusted daily closes via yfinance. Signals are computed at close t; simulated entry at adjusted close t+1. Exits 21 or 63 sessions later. Returns are percentage changes, not annualized.")
 st.dataframe(stats, use_container_width=True, hide_index=True)
 events21 = event_sample(historical, 21)
 events63 = event_sample(historical, 63)
@@ -124,7 +132,7 @@ with st.expander("How to interpret the backtest"):
     - The non-overlapping favorable-entry sample skips later signals while a prior signal's horizon is open. This reduces overlap, but is sensitive to the initial date and may produce very few observations.
     - Entry is modeled at **the next daily close**, not the next open; real fills, intraday path, costs, spreads, taxes and slippage are not modeled. No short selling is assumed.
     - Indicator parameters and cutoffs were chosen heuristically, without train/test splitting. Results are **in-sample** and may be overfit even when they appear profitable.
-    - Two years of data (including indicator warm-up) is a **limited sample**. Evaluate longer periods and bear markets before using these results for allocations.
+    - Ten years of requested data (including indicator warm-up) remains **a limited and regime-dependent sample**. Evaluate longer periods and bear markets before using these results for allocations.
     - Adjusted prices reflect vendor corporate-action adjustments and do not guarantee executable historical fills. Independently verify anomalous bars and split/dividend dates before trading.
     """)
 
