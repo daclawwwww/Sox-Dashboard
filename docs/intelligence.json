@@ -1,0 +1,93 @@
+{
+  "generated_utc": "2026-10-13T13:35:58.416591+00:00",
+  "coverage": "Recent public news headlines; not verified fundamental data or AI financial analysis",
+  "groups": [
+    {
+      "factor": "AI capex",
+      "articles": [
+        {
+          "title": "Microsoft, Meta And Google Just Silenced AI Spending Critics In One Earnings Night As Big Tech Capex Swells To $725B - Stocktwits",
+          "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxNQ2ZDQkRWWGZaNVdBV1UwS0FEY0RvVVJqUFUxNXd2eHpWM1haeXltLUNpaXB2TW5kcHlJRFo0WFNOQWZFaGNDZ2p3WlcwZjhPVndrYkQwWVAxR0tVVnotaFdDNnZHT1IxZ1BJVHJXZXFpVG5ROUlMcGZoR29iczhkOGM4VG9UMEVWWHJoUEY5TlBCN0RiTEotLTFWNVdFZHZpUmVBOHBuYWVaN0xYMEJzSkgtSno4WHhuc2x4TmpMUkV5bHJDaTNqVHFKalBIMl9pZ01MSjF2a0hpczUtYjMxUHk1OGt0VUxxbHRuaHZ3Nkt4ekRLTl9YZzVQX04wYjFUS25wLUZwWUJwTFU?oc=5",
+          "source": "Stocktwits",
+          "published_utc": "2026-10-12T22:14:10+00:00"
+        },
+        {
+          "title": "Nvidia, AMD, Google, Meta Set Data Center Spec v0.7 [2026] - https://tech-insider.org/",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOdm5VdzJFT2hDRnNTalZMSEpsOHhwQ2ZwMEdGN014aUNiVE52Tk9oTS1GS242YTBoV19fTGxvTERqUUY5TWk5Y1Nkd211dnFDaU5CWmtHc0EzbG1mSmlma1FpRU91Q2ZNUjlRUHU3N2tvMVV5eVhMalZKLXRXbXA2cA?oc=5",
+          "source": "https://tech-insider.org/",
+          "published_utc": "2026-10-13T04:28:34+00:00"
+        },
+        {
+          "title": "AI Data Centers Cost Billions to Build. This Is Why - Bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBzUTIzTEVwSDZGRmkxV05DbzBzNERNektBTG5BNzB1NzBxVVNRZXIxOGZkRlhrVUx4SjN5aWJWdzdEZ2s4dEQ1SGdtbmx0eXNtM2VWb2gwcmhacDhzQ1JfN1czbGxKWnpZT3h3TVE2Tlk5RzBTSkE?oc=5",
+          "source": "Bloomberg.com",
+          "published_utc": "2026-10-12T10:30:00+00:00"
+        },
+        {
+          "title": "Ian King: Hyperscalers' $750 Billion Data Center Splurge Will End the Way Every Chip Boom Has Ended - BigGo Finance",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFA4WTF0VE9tMnZ4OGk1NUlvcVJzTmh4ZGVteWJ2eTA1T1FuNEJwdWJWa0F4bUlxM3htV0JsY1czTzNVd2tpcE9QakxGTmJEODZTX3gybDQ3QVkxTEU?oc=5",
+          "source": "BigGo Finance",
+          "published_utc": "2026-10-12T22:08:00+00:00"
+        },
+        {
+          "title": "Guide to Magnificent Seven ETF investing - TradingView",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQUFhsQ1JtSHhoQlJITWgtZHBEVzNMeTF2SlU1Z1J5SDZ0UER6ckprS3BxV25MN2FyQ3VIUVlZUVJYWFItZTJxRnB1YjlOU2NNU1liNzR0Z0d2bHpPOFh0R2dRd2EtUHRNNkVTVE9NR0lwTEJiWXdFLWhROTdHRk9UekJTdzVlOTRUNVJFcUEwanNOV1BETHJCNDhsa1U?oc=5",
+          "source": "TradingView",
+          "published_utc": "2026-10-12T11:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "factor": "Semiconductor cycle",
+      "articles": [
+        {
+          "title": "The Memory Bottleneck Made Investors Rich For 3 Years, Now CXL Looks like The Next Play - 24/7 Wall St.",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOWjh2NmMySWZIOGdiQ3ZnaUUyZ1JaNGlHLVBKNzltWUxvZ29GSFdmZnotRTRsQUZMdUVUSjRfU0stUHYzeVBoLUdyamRra2pFZTBWQlVwTndnbkFSaGJ2b1NScXhGVHBORE5GSEV3eWllZGdNZk5ZVHRDXy1OUUxMeDNKaVVBMV9GSHA0dWpFakNDWFlfSS1aSjlkMlBWLVNOdndfX2pDVndqTU44blZLOFhRMFpLN3dsQkN5MkdfdHdiblpVRlZ2MV9n?oc=5",
+          "source": "24/7 Wall St.",
+          "published_utc": "2026-10-13T09:13:00+00:00"
+        },
+        {
+          "title": "Navigating the Memory Market Rebound: Catalysts, Headwinds, and Top Stock Opportunities - Moomoo",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNRDNXeEljMjJZeHdRTUtqbHhtR080X0xQd3N6ZzBiclA3OWkxUVlwWG1aY0h5VEptYllVckxfYnhxd1ByWG9veWZjWElVcmo1RFdha0szSFNOMGdNM3NJeDQtOFBQX1lrczc0QkNmODk5NlpiblZhbjFxN3NSeTloM3QwRk5sOURvZmxIYlVaVXExaWNIaENVenpqZnRqODRzR0M5MmJZMVRuaExsYWIzRndOUmVTZmdaRUMwaTBidWJTUQ?oc=5",
+          "source": "Moomoo",
+          "published_utc": "2026-10-13T08:53:04+00:00"
+        },
+        {
+          "title": "Micron Technology, Inc. (MU) Stock Price, News, Quote & History - Yahoo! Finance Canada",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1KSGVnVXZ1cjVQOUFlaEowNDQ2TFBGVFJxY3hmY1l3dmFqT29zTnk0NHNSZVI0dDk3clRKcEtTTi1uRktPN1JwMmMzUnI1VkU?oc=5",
+          "source": "Yahoo! Finance Canada",
+          "published_utc": "2026-10-13T08:06:55+00:00"
+        },
+        {
+          "title": "PC Shipments Plunge as Memory Prices Soar, Squeezing the Low-End Market - BigGo Finance",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBJTjZDRkg5ZUdyS21kTTVCWVZLWk5JSHp3THhZNm0tNXpXMGYxTFF1RUdGOFdNY1p0U3N0WExqT2ZuT3RKQ3Ayc2JvUk43cnRpY2ZEV1pPT0FfemVQZUpYeFhxZGFtelpTb0FUTk1ydFhnMmUtOFE?oc=5",
+          "source": "BigGo Finance",
+          "published_utc": "2026-10-13T01:36:00+00:00"
+        },
+        {
+          "title": "SanDisk Drops 6% in Memory Selloff on China’s DRAM Progress; Seagate Slides 4% - 24/7 Wall St.",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZDVXZUxEQThHM2JwSkFHMnVfSDY4djItRE9YdjdMaGxJaVkyU1M2YlozTUw4NUxwRUNDNkNCS3VPbkZzN0piYkpIWkR6WDRUQWpXR0R5Wm5DRmlMMzNwNkVHYjkteUp2ZEllTzFEQ1RXYkZkZGxfeWwtbldHOEw4VHp6M2tiTmhYV0J5a1dHS3lXTVh2MXRhbzJDYnc1eV9ZWVgzMG8wenNzbzU5ZVcyY1FQby1IaFFw?oc=5",
+          "source": "24/7 Wall St.",
+          "published_utc": "2026-10-12T16:01:00+00:00"
+        }
+      ]
+    },
+    {
+      "factor": "Earnings revisions",
+      "articles": []
+    },
+    {
+      "factor": "Competition",
+      "articles": []
+    },
+    {
+      "factor": "Macro geopolitics",
+      "articles": []
+    }
+  ],
+  "errors": [
+    "Earnings revisions: no returned articles",
+    "Competition: no returned articles",
+    "Macro geopolitics: no returned articles"
+  ]
+}
