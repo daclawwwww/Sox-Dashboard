@@ -102,6 +102,8 @@ c3.metric("SOXX 63-session return", f"{last.ROC63:+.1f}%")
 c4.metric("20-session relative return", f"{last.RS20:+.1f}%")
 
 
+from backtest import evaluate, event_sample, strategy_report
+
 st.subheader("Strategy Comparison: 10-Year History")
 st.caption("Predeclared rules: momentum, correction within an uptrend, combined, and buy-and-hold. Signals at today's close, exposure from the following daily return. Assumed 10 bps per side of turnover. Zero cash yield; taxes and execution costs not captured. Last 30% is a chronological holdout, not a randomized sample.")
 try:
@@ -111,7 +113,6 @@ try:
 except Exception as exc:
     st.warning(f"Strategy backtest unavailable: {exc}")
 st.subheader("Historical SOXL Signal Backtest")
-from backtest import evaluate, event_sample, strategy_report
 historical, stats = evaluate(data)
 st.caption("Overlapping forward-return study (not individual trades). Yahoo Finance adjusted daily closes via yfinance. Signals are computed at close t; simulated entry at adjusted close t+1. Exits 21 or 63 sessions later. Returns are percentage changes, not annualized.")
 st.dataframe(stats, use_container_width=True, hide_index=True)
