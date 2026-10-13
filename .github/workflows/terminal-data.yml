@@ -1,0 +1,43 @@
+name: Refresh Terminal Market Data
+on:
+  workflow_dispatch:
+  schedule:
+    # Weekdays after the regular US trading session, in UTC.
+    - cron: "25 22 * * 1-5"
+permissions:
+  contents: write
+concurrency:
+  group: terminal-market-data
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Build market snapshot
+        run: python publish_terminal.py
+      - name: Refresh sourced intelligence headlines
+        run: python publish_intelligence.py
+        continue-on-error: true
+      - name: Audit qualitative evidence coverage
+        run: python committee_audit.py
+        continue-on-error: true
+      - name: Archive published qualitative assessment
+        run: python archive_assessment.py
+      - name: Commit refreshed snapshot if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/market.json
+          git add docs/intelligence.json docs/committee.json docs/assessment-history.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Update terminal end-of-day market snapshot"
+            git push
+          fi

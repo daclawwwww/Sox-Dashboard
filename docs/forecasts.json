@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "method": "Prospective hypotheses, not verified predictions. Probabilities omitted until sourced measurable baselines exist.",
+  "asof": "2026-10-13",
+  "forecasts": [
+    {
+      "id": "capex-2026q4",
+      "factor": "AI capex",
+      "question": "Will the next published combined quarterly capex outlook for Microsoft, Alphabet, Amazon, and Meta rise versus their prior published outlooks?",
+      "resolution_date": "2027-02-28",
+      "baseline": "Unverified: collect dated prior-company guidance",
+      "forecast": "Unassessed",
+      "probability": null,
+      "bull_case": "Capex commitments and AI workload adoption remain resilient",
+      "bear_case": "Capital constraints prompt lower-than-expected spending plans",
+      "catalysts": [
+        "Upcoming hyperscaler earnings and capex commentary"
+      ],
+      "falsifiers": [
+        "Multiple hyperscalers reduce guidance"
+      ],
+      "sources": []
+    },
+    {
+      "id": "memory-2026q4",
+      "factor": "Semiconductor cycle",
+      "question": "Will published DRAM contract pricing increase quarter over quarter in Q4 2026?",
+      "resolution_date": "2027-01-31",
+      "baseline": "Unverified: choose consistent priced DRAM index and as-of observations",
+      "forecast": "Unassessed",
+      "probability": null,
+      "bull_case": "Demand and constrained supply support prices",
+      "bear_case": "Competition and inventory weaken prices",
+      "catalysts": [
+        "Quarterly contract price publications"
+      ],
+      "falsifiers": [
+        "Sustained quarter-over-quarter contract price declines"
+      ],
+      "sources": []
+    },
+    {
+      "id": "eps-2026q4",
+      "factor": "Earnings revisions",
+      "question": "Will aggregate forward 12-month EPS consensus for SOXX constituents rise during Q4 2026?",
+      "resolution_date": "2027-01-31",
+      "baseline": "Unverified: historical point-in-time constituent set and consensus vendor data required",
+      "forecast": "Unassessed",
+      "probability": null,
+      "bull_case": "AI earnings strength offsets weak subsectors",
+      "bear_case": "Margin or demand revisions dominate",
+      "catalysts": [
+        "Q3/Q4 earnings season"
+      ],
+      "falsifiers": [
+        "Broad-based consensus EPS cuts"
+      ],
+      "sources": []
+    }
+  ]
+}

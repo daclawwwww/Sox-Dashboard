@@ -1,3 +1,4 @@
+import streamlit as st
 
 def get_macro_signal_score(simulate="neutral"):
     """
@@ -6,8 +7,6 @@ def get_macro_signal_score(simulate="neutral"):
     
     simulate: 'strong', 'weak', or 'neutral'
     """
-    if simulate not in {"strong", "neutral", "weak"}:
-        raise ValueError("Unknown hypothetical scenario")
     # Define mock indicator values based on selected scenario
     if simulate == "strong":
         indicators = {
