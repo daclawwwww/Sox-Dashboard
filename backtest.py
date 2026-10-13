@@ -96,7 +96,8 @@ def strategy_report(scored, side_bps=10):
             sharpe = (r.mean() * 252) / vol if vol > 0 else np.nan
             maxdd = (equity / pd.concat([pd.Series([1.0]), equity.reset_index(drop=True)]).cummax().iloc[1:].to_numpy() - 1).min()
             rows.append({
-                "Sample": sample, "Strategy": name,\n                "Start date": str(subset.index[0].date()), "End date": str(subset.index[-1].date()),
+                "Sample": sample, "Strategy": name,
+                "Start date": str(subset.index[0].date()), "End date": str(subset.index[-1].date()),
                 "Total return %": round(total * 100, 1),
                 "CAGR %": round(cagr * 100, 1),
                 "Max drawdown %": round(maxdd * 100, 1),
