@@ -1,0 +1,47 @@
+{
+  "generated_utc": "2026-10-13T13:46:25.490288+00:00",
+  "source_generated_utc": "2026-10-13T13:46:25.164281+00:00",
+  "method": "Deterministic source-coverage audit (NOT AI analysis)",
+  "groups": [
+    {
+      "factor": "AI capex",
+      "status": "HEADLINES ONLY",
+      "article_count": 5,
+      "latest_source_date": "2026-10-13",
+      "next_evidence": "Quarter-over-quarter and year-over-year hyperscaler capex guidance, actual spending, and company filings.",
+      "interpretation": "Not assessed \u2014 headlines cannot independently establish a fundamental trend."
+    },
+    {
+      "factor": "Semiconductor cycle",
+      "status": "HEADLINES ONLY",
+      "article_count": 5,
+      "latest_source_date": "2026-10-13",
+      "next_evidence": "Dated DRAM and NAND quotes, industry inventories, lead times, and chip-sales trend.",
+      "interpretation": "Not assessed \u2014 headlines cannot independently establish a fundamental trend."
+    },
+    {
+      "factor": "Earnings revisions",
+      "status": "HEADLINES ONLY",
+      "article_count": 5,
+      "latest_source_date": "2026-10-13",
+      "next_evidence": "As-of-date consensus EPS estimates, guidance updates, and gross-margin revisions.",
+      "interpretation": "Not assessed \u2014 headlines cannot independently establish a fundamental trend."
+    },
+    {
+      "factor": "Competition",
+      "status": "HEADLINES ONLY",
+      "article_count": 5,
+      "latest_source_date": "2026-10-13",
+      "next_evidence": "Documented customer shifts, custom ASIC deployments, export restrictions, and market share.",
+      "interpretation": "Not assessed \u2014 headlines cannot independently establish a fundamental trend."
+    },
+    {
+      "factor": "Macro geopolitics",
+      "status": "HEADLINES ONLY",
+      "article_count": 5,
+      "latest_source_date": "2026-10-13",
+      "next_evidence": "Rates, export-control changes, Taiwan supply-chain risk, and associated event dates.",
+      "interpretation": "Not assessed \u2014 headlines cannot independently establish a fundamental trend."
+    }
+  ]
+}
