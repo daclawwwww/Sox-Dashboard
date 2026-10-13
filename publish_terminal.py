@@ -78,7 +78,8 @@ def main():
     _,report=strategy_report(scored)
     backtest=[]
     for row in report.to_dict(orient="records"):
-        backtest.append(dict(sample=row["Sample"],strategy=row["Strategy"],\n            start_date=row["Start date"],end_date=row["End date"],total_return_pct=row["Total return %"],
+        backtest.append(dict(sample=row["Sample"],strategy=row["Strategy"],
+            start_date=row["Start date"],end_date=row["End date"],total_return_pct=row["Total return %"],
             cagr_pct=row["CAGR %"],max_drawdown_pct=row["Max drawdown %"],
             sharpe=row["Sharpe (0% cash rate)"],exposure_pct=row["Exposure %"]))
     snapshot=dict(asof=common.index[-1].date().isoformat(),
