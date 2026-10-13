@@ -49,7 +49,7 @@ def evaluate(df):
             })
     return scored, pd.DataFrame(rows)
 
-def strategy_report(scored, round_trip_side_bps=10):
+def strategy_report(scored, side_bps=10):
     """Daily mark-to-market strategy comparison with chronological 70/30 split.
 
     Cost charged per unit of position turnover, including last holding liquidated.
@@ -75,7 +75,7 @@ def strategy_report(scored, round_trip_side_bps=10):
         # influences tomorrow's return, never today's.
         held = desired.shift(1).fillna(0)
         turnover = held.diff().abs().fillna(held.abs())
-        pnl = held * ret - turnover * round_trip_side_bps / 10000.0
+        pnl = held * ret - turnover * side_bps / 10000.0
         returns[name] = pnl
         exposure[name] = held
 
@@ -94,9 +94,9 @@ def strategy_report(scored, round_trip_side_bps=10):
             cagr = equity.iloc[-1] ** (1 / years) - 1 if equity.iloc[-1] > 0 else -1
             vol = r.std(ddof=0) * np.sqrt(252)
             sharpe = (r.mean() * 252) / vol if vol > 0 else np.nan
-            maxdd = (equity / equity.cummax() - 1).min()
+            maxdd = (equity / pd.concat([pd.Series([1.0]), equity.reset_index(drop=True)]).cummax().iloc[1:].to_numpy() - 1).min()
             rows.append({
-                "Sample": sample, "Strategy": name,
+                "Sample": sample, "Strategy": name,\n                "Start date": str(subset.index[0].date()), "End date": str(subset.index[-1].date()),
                 "Total return %": round(total * 100, 1),
                 "CAGR %": round(cagr * 100, 1),
                 "Max drawdown %": round(maxdd * 100, 1),
