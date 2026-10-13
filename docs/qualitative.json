@@ -1,0 +1,11 @@
+{
+  "status": "awaiting_first_assessment",
+  "asof": null,
+  "published_utc": null,
+  "headline": "Daily investment assessment not yet published",
+  "overall": "The scheduled research task will attempt to publish sourced qualitative assessments. Until a validated assessment is available, the technical trading score remains separate.",
+  "factors": [],
+  "risks": [],
+  "invalidation": [],
+  "sources": []
+}
