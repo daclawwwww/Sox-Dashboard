@@ -105,7 +105,7 @@ c4.metric("20-session relative return", f"{last.RS20:+.1f}%")
 st.subheader("Strategy Comparison: 10-Year History")
 st.caption("Predeclared rules: momentum, correction within an uptrend, combined, and buy-and-hold. Signals at today's close, exposure from the following daily return. Assumed 10 bps per side of turnover. Zero cash yield; taxes and execution costs not captured. Last 30% is a chronological holdout, not a randomized sample.")
 try:
-    daily_pnl, comparison = strategy_report(historical if "historical" in globals() else evaluate(data)[0])
+    daily_pnl, comparison = strategy_report(evaluate(data)[0])
     st.dataframe(comparison, use_container_width=True, hide_index=True)
     st.line_chart((1 + daily_pnl).cumprod())
 except Exception as exc:
