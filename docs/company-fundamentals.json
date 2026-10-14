@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "method": "Incremental operating income ÷ incremental revenue. Reported comparisons and guidance use separate dates/accounting bases; no implied figure is a company forecast of incremental margin. Guide scenarios hold the guided gross-margin and opex assumptions fixed, not sensitivities.",
+  "method": "Incremental operating income ÷ incremental revenue. Reported comparisons and guidance use separate dates/accounting bases; no implied figure is a company forecast of incremental margin. Guide scenarios hold the guided gross-margin and opex assumptions fixed, not sensitivities. Quarter history shows four reported quarters (three observable sequential changes). Do not conflate sequential and year-over-year increments or GAAP and non-GAAP. Revenue decline periods can make incremental margins counterintuitive.",
   "companies": [
     {
       "ticker": "NVDA",
@@ -59,9 +59,71 @@
           "title": "Micron FQ4 2026 earnings release (SEC exhibit)",
           "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm",
           "date": "2026-09-30"
+        },
+        {
+          "title": "Micron fiscal Q2 2026 results",
+          "url": "https://investors.micron.com/news/press-release/2026/Micron-Technology-Inc--Reports-Results-for-the-Second-Quarter-of-Fiscal-2026-03-18-2026/default.aspx",
+          "date": "2026-03-18"
+        },
+        {
+          "title": "Micron fiscal Q3 2026 results",
+          "url": "https://investors.micron.com/financials/quarterly-results/default.aspx",
+          "date": "2026-06-24"
         }
       ],
-      "status": "Sourced 2026-09-30, GAAP sequential operating leverage; guided income analyst-derived"
+      "status": "Sourced 2026-09-30, GAAP sequential operating leverage; guided income analyst-derived",
+      "quarterly_history": [
+        {
+          "period": "FQ1 2026",
+          "revenue": 13643,
+          "operating_income": 6136,
+          "publication_date": "2026-03-18",
+          "operating_margin_pct": 45,
+          "sequential_incremental_margin_pct": null,
+          "accounting_basis": "GAAP",
+          "units": "USD millions"
+        },
+        {
+          "period": "FQ2 2026",
+          "revenue": 23860,
+          "operating_income": 16135,
+          "publication_date": "2026-03-18",
+          "operating_margin_pct": 67.6,
+          "sequential_incremental_margin_pct": 97.9,
+          "accounting_basis": "GAAP",
+          "units": "USD millions"
+        },
+        {
+          "period": "FQ3 2026",
+          "revenue": 41456,
+          "operating_income": 33318,
+          "publication_date": "2026-06-24",
+          "operating_margin_pct": 80.4,
+          "sequential_incremental_margin_pct": 97.7,
+          "accounting_basis": "GAAP",
+          "units": "USD millions"
+        },
+        {
+          "period": "FQ4 2026",
+          "revenue": 54229,
+          "operating_income": 43751,
+          "publication_date": "2026-09-30",
+          "operating_margin_pct": 80.7,
+          "sequential_incremental_margin_pct": 81.7,
+          "accounting_basis": "GAAP",
+          "units": "USD millions"
+        }
+      ],
+      "guide_vs_history": {
+        "guide_midpoint_incremental_margin_pct": 93.5,
+        "historical_sequential_incremental_margins_pct": [
+          97.9,
+          97.7,
+          81.7
+        ],
+        "comparison": "Guide calculations are a forward, company-assumption-based scenario. Historical rows are reported GAAP. Do not compare directly if guidance uses a non-GAAP basis.",
+        "consensus_gap": "Unavailable: point-in-time consensus operating income not provided"
+      }
     },
     {
       "ticker": "AMD",
@@ -121,9 +183,71 @@
           "title": "Broadcom FQ3 2026 earnings and FQ4 guide",
           "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-third-quarter-fiscal-year-2026-financial",
           "date": "2026-09-02"
+        },
+        {
+          "title": "Broadcom fiscal Q1 2026 results",
+          "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-first-quarter-fiscal-year-2026-financial",
+          "date": "2026-03-04"
+        },
+        {
+          "title": "Broadcom fiscal Q2 2026 results",
+          "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-second-quarter-fiscal-year-2026-financial",
+          "date": "2026-06-03"
         }
       ],
-      "status": "Sourced 2026-09-02; GAAP YoY reported / non-GAAP sequential guidance"
+      "status": "Sourced 2026-09-02; GAAP YoY reported / non-GAAP sequential guidance",
+      "quarterly_history": [
+        {
+          "period": "FQ4 2025",
+          "revenue": 18015,
+          "operating_income": 7508,
+          "publication_date": "2026-03-04",
+          "operating_margin_pct": 41.7,
+          "sequential_incremental_margin_pct": null,
+          "accounting_basis": "GAAP",
+          "units": "USD millions"
+        },
+        {
+          "period": "FQ1 2026",
+          "revenue": 19311,
+          "operating_income": 8563,
+          "publication_date": "2026-03-04",
+          "operating_margin_pct": 44.3,
+          "sequential_incremental_margin_pct": 81.4,
+          "accounting_basis": "GAAP",
+          "units": "USD millions"
+        },
+        {
+          "period": "FQ2 2026",
+          "revenue": 22187,
+          "operating_income": 10788,
+          "publication_date": "2026-06-03",
+          "operating_margin_pct": 48.6,
+          "sequential_incremental_margin_pct": 77.4,
+          "accounting_basis": "GAAP",
+          "units": "USD millions"
+        },
+        {
+          "period": "FQ3 2026",
+          "revenue": 29591,
+          "operating_income": 15955,
+          "publication_date": "2026-09-02",
+          "operating_margin_pct": 53.9,
+          "sequential_incremental_margin_pct": 69.8,
+          "accounting_basis": "GAAP",
+          "units": "USD millions"
+        }
+      ],
+      "guide_vs_history": {
+        "guide_midpoint_incremental_margin_pct": 55.2,
+        "historical_sequential_incremental_margins_pct": [
+          81.4,
+          77.4,
+          69.8
+        ],
+        "comparison": "Guide calculations are a forward, company-assumption-based scenario. Historical rows are reported GAAP. Do not compare directly if guidance uses a non-GAAP basis.",
+        "consensus_gap": "Unavailable: point-in-time consensus operating income not provided"
+      }
     },
     {
       "ticker": "TSM",
