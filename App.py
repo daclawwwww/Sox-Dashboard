@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import yfinance as yf
+from utils.price_quality import validated_close, aligned_prices, require_fresh_date
+from utils.market_sessions import SessionContext
 
 st.set_page_config(page_title="Semiconductor & SOXL Signal Tracker", layout="wide")
 st.title("Semiconductor & SOXL Signal Tracker")
@@ -8,19 +10,16 @@ st.caption("SOXX drives the sector signal; SOXL is a 3x daily leveraged tactical
 
 @st.cache_data(ttl=3600)
 def get_prices():
+    sessions = SessionContext.create()
     result = {}
+    diagnostics = {}
     for symbol in ("SOXX", "SOXL", "SPY"):
         df = yf.download(symbol, period="10y", interval="1d", auto_adjust=True, progress=False, threads=False)
-        if df.empty:
-            raise ValueError(f"No prices returned for {symbol}.")
-        if isinstance(df.columns, pd.MultiIndex):
-            df.columns = df.columns.get_level_values(0)
-        if "Close" not in df:
-            raise ValueError(f"Close column not found for {symbol}.")
-        close = pd.to_numeric(df["Close"], errors="coerce").dropna()
-        close.index = pd.to_datetime(close.index).tz_localize(None) if close.index.tz is not None else pd.to_datetime(close.index)
-        result[symbol] = close
-    return pd.DataFrame(result).ffill().dropna()
+        result[symbol] = validated_close(df, symbol, sessions=sessions,
+                                         allow_missing_latest=True, diagnostics=diagnostics)
+    common = aligned_prices(result, sessions=sessions, allow_fallback=True)
+    common.attrs["source_diagnostics"] = diagnostics
+    return common
 
 def calc_rsi(s, n=14):
     change = s.diff()
@@ -49,6 +48,10 @@ def calc_indicators(p):
 
 try:
     prices = get_prices()
+    # Validate again on every rerun, even while the download cache is warm.
+    sessions = SessionContext.create()
+    lag_sessions = require_fresh_date(prices.index[-1], sessions=sessions, allow_fallback=True)
+    freshness = sessions.metadata(prices.index[-1])
     data = calc_indicators(prices)
     if data.empty:
         raise ValueError("Not enough complete price history to calculate indicators.")
@@ -58,14 +61,13 @@ except Exception as exc:
 
 last = data.iloc[-1]
 asof = data.index[-1].date()
-today = pd.Timestamp.now(tz="America/New_York").date()
-age = (today - asof).days
-st.write(f"**Latest trading observation:** {asof.isoformat()} (end-of-day; prices may be delayed)")
-if age > 5:
-    st.error(f"PRICE DATA STALE: latest observation is {age} calendar days old. Signal disabled.")
-    st.stop()
-if age > 3:
-    st.warning(f"Latest observation is {age} calendar days old; confirm market holiday/weekend and data availability.")
+st.write(f"**Market-data session:** {asof.isoformat()} (completed-session adjusted daily prices)")
+st.caption(f"Data captured: {prices.attrs['session']['cutoff_utc']}. "
+           f"Latest completed US equity session: {freshness['expected_latest_completed_session']}. "
+           "A refresh time is not a market-data date; vendor prices may be delayed or revised.")
+if lag_sessions:
+    st.warning(f"FALLBACK DATA: showing {asof.isoformat()}, {lag_sessions} completed session(s) "
+               f"behind {freshness['expected_latest_completed_session']}. Signals below use older prices.")
 
 checks = [
     ("SOXX above 200-day average", last.SOXX > last.MA200, 2),

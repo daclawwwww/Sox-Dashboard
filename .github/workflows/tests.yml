@@ -1,0 +1,23 @@
+name: Offline signal-quality tests
+on:
+  pull_request:
+  push:
+    branches: [main, fix/observed-signal-quality]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt pytest
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/test_freshness.js
+      - run: python -m pytest -q
+      - run: python -m compileall -q App.py publish_terminal.py utils tests

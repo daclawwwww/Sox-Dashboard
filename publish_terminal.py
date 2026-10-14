@@ -1,25 +1,97 @@
 """Publish dated, adjusted end-of-day market snapshot for the static terminal."""
 import json
-from datetime import datetime, timezone
+import os
+import tempfile
 from pathlib import Path
 import numpy as np
 import pandas as pd
 import yfinance as yf
 from backtest import evaluate, strategy_report
+from utils.price_quality import validated_close, aligned_prices
+from utils.market_sessions import SessionContext, aware_utc, session_close, session_date
 
 TICKERS = ["SOXL", "SOXX", "SPY", "NVDA", "MU", "AMD", "AVGO", "TSM"]
 ROOT = Path(__file__).resolve().parent
 
-def fetch(symbol):
-    data = yf.download(symbol, period="10y", interval="1d", auto_adjust=True,
-                       progress=False, threads=False)
-    if data.empty:
-        raise ValueError(f"No historical prices available for {symbol}")
-    if isinstance(data.columns, pd.MultiIndex):
-        data.columns = data.columns.get_level_values(0)
-    s = pd.to_numeric(data["Close"], errors="coerce").dropna()
-    s.index = pd.to_datetime(s.index).tz_localize(None) if s.index.tz is not None else pd.to_datetime(s.index)
-    return s[~s.index.duplicated(keep="last")].sort_index()
+def fetch(symbol, sessions, diagnostics):
+    diagnostics[symbol] = {
+        "status": "loading", "error": None,
+        "latest_seen_session": None, "latest_valid_session": None,
+        "latest_completed_valid_session": None, "missing_completed_sessions": [],
+        "excluded_in_progress_sessions": [], "omitted_from_watchlist": True,
+    }
+    try:
+        data = yf.download(symbol, period="10y", interval="1d", auto_adjust=True,
+                           progress=False, threads=False)
+        prices = validated_close(data, symbol, sessions=sessions,
+                                 allow_missing_latest=True, diagnostics=diagnostics)
+    except Exception as exc:
+        diagnostics[symbol].update(status="error", error=str(exc))
+        raise
+    diagnostics[symbol].update(status="ok", error=None)
+    return prices
+
+
+def guard_snapshot_regression(path, candidate_asof, cutoff_utc):
+    """Protect finalized newer data; permit repairing a legacy intraday label.
+
+    A newer date by itself is insufficient: older publishers sometimes labeled
+    an unfinished daily bar as EOD. Independently compare the prior generated
+    time and pre-fetch cutoff with the calendar's actual session close. A legacy
+    generated timestamp alone cannot prove when its source data was downloaded.
+    """
+    if not path.exists():
+        return
+    try:
+        previous = json.loads(path.read_text(encoding="utf-8"))
+        prior_date = session_date(previous["asof"])
+        if prior_date <= session_date(candidate_asof):
+            return
+        prior_close = session_close(prior_date)
+        generated = aware_utc(previous["generated_utc"])
+        if generated < prior_close:
+            print(f"Correcting unfinalized prior snapshot {prior_date.date().isoformat()}: "
+                  f"generated {generated.isoformat()} before session close {prior_close.isoformat()}")
+            return
+        recorded = previous["session"]
+        cutoff = aware_utc(recorded["cutoff_utc"])
+        if not prior_close <= cutoff <= generated <= aware_utc(cutoff_utc):
+            raise ValueError("Previous finality timestamps are inconsistent or in the future")
+        expected = SessionContext.create(cutoff).metadata(prior_date)
+        for key in ("calendar", "timezone", "actual_session", "expected_latest_completed_session",
+                    "lag_sessions", "next_session", "status"):
+            if recorded[key] != expected[key]:
+                raise ValueError(f"Previous session metadata does not match the calendar: {key}")
+        for key in ("actual_close_utc", "expected_latest_completed_close_utc", "next_session_close_utc"):
+            if aware_utc(recorded[key]) != aware_utc(expected[key]):
+                raise ValueError(f"Previous session timestamp does not match the calendar: {key}")
+    except (ValueError, TypeError, KeyError, AttributeError) as exc:
+        print(f"Previous snapshot finality is unverifiable; replacing with validated completed closes: {exc}")
+        return
+    reason = (f"Snapshot regression rejected: existing finalized {prior_date.date().isoformat()} "
+              f"(close {prior_close.isoformat()}, cutoff {cutoff.isoformat()}, generated {generated.isoformat()}) "
+              f"is newer than candidate {session_date(candidate_asof).date().isoformat()}; "
+              "existing snapshot preserved")
+    print(reason)
+    raise ValueError(reason)
+
+
+def write_snapshot(path, snapshot):
+    """Serialize fully before atomically replacing the previously published file."""
+    payload = json.dumps(snapshot, allow_nan=False, indent=2) + "\n"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent,
+                                         prefix=".market-", suffix=".json", delete=False) as handle:
+            temp_path = Path(handle.name)
+            handle.write(payload)
+        # Recheck immediately before replacement, after potentially slow scoring.
+        guard_snapshot_regression(path, snapshot["asof"], snapshot["session"]["cutoff_utc"])
+        os.replace(temp_path, path)
+    finally:
+        if temp_path is not None:
+            temp_path.unlink(missing_ok=True)
 
 def rsi(series, n=14):
     delta = series.diff()
@@ -28,9 +100,25 @@ def rsi(series, n=14):
     ratio = up / down.replace(0, np.nan)
     return (100 - 100/(1+ratio)).where(down!=0,100)
 
-def main():
-    raw = {ticker: fetch(ticker) for ticker in TICKERS}
-    common = pd.concat({k:raw[k] for k in ("SOXX","SOXL","SPY")}, axis=1).dropna()
+def main(cutoff_utc=None):
+    # Capture once, before any download. Crossing a close while fetching must
+    # never make different symbols use different completion cutoffs.
+    sessions = SessionContext.create(cutoff_utc)
+    diagnostics = {}
+    try:
+        raw = {ticker: fetch(ticker, sessions, diagnostics) for ticker in TICKERS}
+        common = aligned_prices({k:raw[k] for k in ("SOXX","SOXL","SPY")},
+                                sessions=sessions, allow_fallback=True)
+    except Exception as exc:
+        print("PRICE_SOURCE_DIAGNOSTICS " + json.dumps({"cutoff_utc": sessions.cutoff_utc.isoformat(),
+              "expected_latest_completed_session": sessions.expected_latest_completed_session.date().isoformat(),
+              "sources": diagnostics, "rejected_reason": str(exc)}, sort_keys=True))
+        raise
+    for ticker, prices in raw.items():
+        diagnostics[ticker]["omitted_from_watchlist"] = (
+            common.index[-1] not in prices.index or len(prices.loc[:common.index[-1]]) < 64)
+    print("PRICE_SOURCE_DIAGNOSTICS " + json.dumps({"session": common.attrs["session"],
+                                                  "sources": diagnostics}, sort_keys=True))
     # No forward-filling missing observations: an absent bar is not a flat return.
     if len(common)<600:
         raise ValueError("Too little SOXX/SOXL/SPY overlapping history")
@@ -70,7 +158,8 @@ def main():
     watch=[]
     for ticker, prices in raw.items():
         recent=prices.loc[:common.index[-1]].dropna()
-        if len(recent)<64:continue
+        # A watchlist row shares the snapshot's asof date; omit lagging symbols.
+        if len(recent)<64 or recent.index[-1] != common.index[-1]:continue
         watch.append(dict(ticker=ticker,close=round(float(recent.iloc[-1]),2),
             day_pct=round(float((recent.iloc[-1]/recent.iloc[-2]-1)*100),2),
             week_pct=round(float((recent.iloc[-1]/recent.iloc[-6]-1)*100),2),
@@ -81,9 +170,13 @@ def main():
         backtest.append(dict(sample=row["Sample"],strategy=row["Strategy"],
             start_date=row["Start date"],end_date=row["End date"],total_return_pct=row["Total return %"],
             cagr_pct=row["CAGR %"],max_drawdown_pct=row["Max drawdown %"],
-            sharpe=row["Sharpe (0% cash rate)"],exposure_pct=row["Exposure %"]))
+            # Pandas coerces None to NaN in mixed numeric columns. A strategy
+            # with no return volatility has no defined Sharpe, not a JSON NaN.
+            sharpe=(float(row["Sharpe (0% cash rate)"]) if pd.notna(row["Sharpe (0% cash rate)"]) else None),
+            exposure_pct=row["Exposure %"]))
     snapshot=dict(asof=common.index[-1].date().isoformat(),
-        generated_utc=datetime.now(timezone.utc).isoformat(),
+        generated_utc=sessions.cutoff_utc.isoformat(),
+        session=common.attrs["session"],source_diagnostics=diagnostics,
         source="yfinance adjusted daily closes",watchlist=watch,
         chart={"soxl":[round(float(x),3) for x in common["SOXL"].tail(252)]},
         signal=dict(score=score,regime=regime,opportunity=opportunity,comment=comment,
@@ -92,9 +185,9 @@ def main():
     for c in snapshot["signal"]["components"]:
         c["pass"]=c.pop("pass_")
     out=ROOT/"docs"/"market.json"
-    out.parent.mkdir(parents=True,exist_ok=True)
-    out.write_text(json.dumps(snapshot,allow_nan=False,indent=2)+"\n",encoding="utf-8")
+    write_snapshot(out, snapshot)
     print(f"Published {out} for {snapshot['asof']} with {len(backtest)} strategy rows.")
+    return snapshot
 
 if __name__=="__main__":
     main()
