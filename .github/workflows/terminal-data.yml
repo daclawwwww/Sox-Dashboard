@@ -51,5 +51,17 @@ jobs:
           git add docs/intelligence.json docs/committee.json docs/assessment-history.json docs/financial-audit.json 2>/dev/null || true
           if ! git diff --cached --quiet; then
             git commit -m "Update terminal end-of-day market snapshot"
-            git push
+            # Retry transient GitHub transport/server failures. Never force-push.
+            for attempt in 1 2 3; do
+              if git push; then
+                echo "Snapshot published successfully"
+                exit 0
+              fi
+              if [ "$attempt" -eq 3 ]; then
+                echo "::error::Unable to publish snapshot after 3 attempts"
+                exit 1
+              fi
+              echo "::warning::Push attempt $attempt failed; retrying shortly"
+              sleep $((attempt * 10))
+            done
           fi
