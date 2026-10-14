@@ -67,6 +67,63 @@
           "date": "2026-10-13"
         }
       ]
+    },
+    {
+      "asof": "2026-10-14",
+      "published_utc": "2026-10-14T13:40:28.855Z",
+      "headline": "Fundamentals cautiously constructive; SOXL tactical risk elevated",
+      "overall": "Price-blind research: ASML's October 14 Q3 results confirm robust advanced chipmaking-equipment demand, including €11.7bn net sales, 57.5% gross margin, and an outlook of €44–45bn in full-year sales. ASML says customers are increasing medium-term equipment-demand forecasts; this does not directly verify hyperscaler return on AI investment or aggregate SOXX earnings revisions. Realized DRAM/NAND contract pricing, point-in-time consensus and the profitability implications of Chinese competition require further evidence. Technical comparison is separate: the last reviewed sector score was neutral (4/7) as of October 12, not a verified current intraday score. Strong supply-chain demand alone is not sufficient evidence to buy a 3× leveraged ETF during a selloff.",
+      "factors": [
+        {
+          "name": "AI capex",
+          "assessment": "Constructive equipment demand; direct capex comparison missing",
+          "reason": "ASML's primary-source outlook describes rising customers' equipment forecasts and demand extending through 2028, but this is not a directly measured current hyperscaler capex revision."
+        },
+        {
+          "name": "Semiconductor cycle",
+          "assessment": "Constructive equipment cycle; memory pricing unverified",
+          "reason": "ASML reported Q3 net sales €11.7bn and 57.5% gross margin. Actual DRAM and NAND contract-price trajectories and inventory levels were not independently verified in this assessment."
+        },
+        {
+          "name": "Earnings revisions",
+          "assessment": "Insufficient point-in-time consensus data",
+          "reason": "ASML's strong outlook is company-specific. It does not establish whether constituent-weighted SOXX forward earnings expectations improved relative to prior consensus."
+        },
+        {
+          "name": "Competition",
+          "assessment": "Material structural risk, magnitude unresolved",
+          "reason": "Chinese memory competition and hyperscaler custom-chip adoption could redistribute profits. Manufacturing yields, volumes and customer shifts have not been verified here."
+        },
+        {
+          "name": "Macro geopolitics",
+          "assessment": "Elevated uncertainty; no verified new policy shock",
+          "reason": "Export restrictions, funding costs and geopolitics remain downside risks; no newly dated October 14 policy change is asserted."
+        }
+      ],
+      "risks": [
+        "Continued SOXL losses and volatility drag during a prolonged correction.",
+        "Strong equipment orders may coexist with stretched chip-stock expectations.",
+        "Unexpected memory supply expansion or custom accelerator adoption may erode margins.",
+        "Further export restrictions or reduced AI financing may reduce order growth."
+      ],
+      "invalidation": [
+        "Reduce fundamental confidence if multiple hyperscalers cut published spending guidance or equipment manufacturers lower forward-order outlooks.",
+        "Confirm quarter-over-quarter realized memory contract prices and capacity before revising memory-cycle expectations.",
+        "Compare dated SOXX constituent consensus estimates and actual earnings revisions before asserting an expectations gap.",
+        "Keep price movements separate from the first fundamental assessment; do not reinterpret facts purely because SOXL declines."
+      ],
+      "sources": [
+        {
+          "title": "ASML Q3 2026 financial results and outlook (company release)",
+          "url": "https://www.investor.asml.com/news-releases/news-release-details/asml-reports-eu11.7-billion-total-net-sales-and-eu5.0-billion-net-income-q3-2026",
+          "date": "2026-10-14"
+        },
+        {
+          "title": "Reuters: ASML orders and AI demand outlook",
+          "url": "https://www.reuters.com/business/asml-forecasts-q4-sales-above-expectations-ai-chip-demand-2026-10-14/",
+          "date": "2026-10-14"
+        }
+      ]
     }
   ]
 }
