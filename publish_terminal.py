@@ -75,6 +75,22 @@ def main():
             day_pct=round(float((recent.iloc[-1]/recent.iloc[-2]-1)*100),2),
             week_pct=round(float((recent.iloc[-1]/recent.iloc[-6]-1)*100),2),
             drawdown_63_pct=round(float((recent.iloc[-1]/recent.tail(63).max()-1)*100),2)))
+    # Independent SOX confirmation: reference-only, never silently enters SOXX signal.
+    sox_reference = {"status":"unavailable","ticker":"^SOX"}
+    try:
+        sox = fetch("^SOX").loc[:common.index[-1]]
+        if len(sox)>=201 and sox.index[-1] == common.index[-1]:
+            ma50=float(sox.tail(50).mean())
+            ma200=float(sox.tail(200).mean())
+            sox_reference = {"status":"available","ticker":"^SOX",
+               "asof":sox.index[-1].date().isoformat(),
+               "close":round(float(sox.iloc[-1]),2),
+               "above_ma50":bool(sox.iloc[-1]>ma50),
+               "above_ma200":bool(sox.iloc[-1]>ma200),
+               "return_20d_pct":round(float((sox.iloc[-1]/sox.iloc[-21]-1)*100),2),
+               "note":"Nasdaq PHLX SOX is independent confirmation only; SOXL tracks the NYSE Semiconductor Index."}
+    except Exception as exc:
+        print("Optional SOX reference unavailable:",str(exc)[:180])
     _,report=strategy_report(scored)
     backtest=[]
     for row in report.to_dict(orient="records"):
@@ -84,7 +100,7 @@ def main():
             sharpe=row["Sharpe (0% cash rate)"],exposure_pct=row["Exposure %"]))
     snapshot=dict(asof=common.index[-1].date().isoformat(),
         generated_utc=datetime.now(timezone.utc).isoformat(),
-        source="yfinance adjusted daily closes",watchlist=watch,
+        source="yfinance adjusted daily closes",watchlist=watch,sox_reference=sox_reference,
         chart={"soxl":[round(float(x),3) for x in common["SOXL"].tail(252)]},
         signal=dict(score=score,regime=regime,opportunity=opportunity,comment=comment,
                     components=[dict(name=name,pass_=bool(passed),weight=weight) for name,passed,weight in checks]),
