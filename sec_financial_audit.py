@@ -31,7 +31,9 @@ def direct_quarter(record,kind,period_end):
     filed,accession,amount,tag=matched[0]
     return {"value_usd_millions":round(amount,3),"filed":filed,"accession":accession,"tag":tag}
 def main():
-    if not os.environ.get("SEC_USER_AGENT"):\n        raise RuntimeError("Set SEC_USER_AGENT with a real contact address before SEC requests")\n    source=json.loads((ROOT/"docs/company-fundamentals.json").read_text())
+    if not os.environ.get("SEC_USER_AGENT"):
+        raise RuntimeError("Set SEC_USER_AGENT with a real contact address before SEC requests")
+    source=json.loads((ROOT/"docs/company-fundamentals.json").read_text())
     rows=[]
     for company in source["companies"]:
         ticker=company["ticker"]
