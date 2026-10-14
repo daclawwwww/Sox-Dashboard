@@ -87,8 +87,8 @@
           "sequential_incremental_margin_pct": null,
           "accounting_basis": "GAAP",
           "units": "USD millions",
-          "period_end": "2025-11-27",
-          "sec_validation_status": "NOT_YET_RUN"
+          "period_end": null,
+          "sec_validation_status": "PERIOD_END_UNVERIFIED"
         },
         {
           "period": "FQ2 2026",
@@ -99,8 +99,8 @@
           "sequential_incremental_margin_pct": 97.9,
           "accounting_basis": "GAAP",
           "units": "USD millions",
-          "period_end": "2026-02-26",
-          "sec_validation_status": "NOT_YET_RUN"
+          "period_end": null,
+          "sec_validation_status": "PERIOD_END_UNVERIFIED"
         },
         {
           "period": "FQ3 2026",
@@ -111,8 +111,8 @@
           "sequential_incremental_margin_pct": 97.7,
           "accounting_basis": "GAAP",
           "units": "USD millions",
-          "period_end": "2026-05-28",
-          "sec_validation_status": "NOT_YET_RUN"
+          "period_end": null,
+          "sec_validation_status": "PERIOD_END_UNVERIFIED"
         },
         {
           "period": "FQ4 2026",
@@ -123,8 +123,8 @@
           "sequential_incremental_margin_pct": 81.7,
           "accounting_basis": "GAAP",
           "units": "USD millions",
-          "period_end": "2026-08-27",
-          "sec_validation_status": "NOT_YET_RUN"
+          "period_end": null,
+          "sec_validation_status": "PERIOD_END_UNVERIFIED"
         }
       ],
       "guide_vs_history": {
@@ -231,8 +231,8 @@
           "sequential_incremental_margin_pct": null,
           "accounting_basis": "GAAP",
           "units": "USD millions",
-          "period_end": "2025-11-02",
-          "sec_validation_status": "NOT_YET_RUN"
+          "period_end": null,
+          "sec_validation_status": "PERIOD_END_UNVERIFIED"
         },
         {
           "period": "FQ1 2026",
@@ -243,8 +243,8 @@
           "sequential_incremental_margin_pct": 81.4,
           "accounting_basis": "GAAP",
           "units": "USD millions",
-          "period_end": "2026-02-01",
-          "sec_validation_status": "NOT_YET_RUN"
+          "period_end": null,
+          "sec_validation_status": "PERIOD_END_UNVERIFIED"
         },
         {
           "period": "FQ2 2026",
@@ -255,8 +255,8 @@
           "sequential_incremental_margin_pct": 77.4,
           "accounting_basis": "GAAP",
           "units": "USD millions",
-          "period_end": "2026-05-03",
-          "sec_validation_status": "NOT_YET_RUN"
+          "period_end": null,
+          "sec_validation_status": "PERIOD_END_UNVERIFIED"
         },
         {
           "period": "FQ3 2026",
@@ -267,8 +267,8 @@
           "sequential_incremental_margin_pct": 69.8,
           "accounting_basis": "GAAP",
           "units": "USD millions",
-          "period_end": "2026-08-02",
-          "sec_validation_status": "NOT_YET_RUN"
+          "period_end": null,
+          "sec_validation_status": "PERIOD_END_UNVERIFIED"
         }
       ],
       "guide_vs_history": {
