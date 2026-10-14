@@ -142,7 +142,13 @@
         "forward_operating_income": null,
         "asof": null,
         "vendor": null,
-        "status": "NOT_AVAILABLE_NO_LICENSED_POINT_IN_TIME_CONSENSUS"
+        "status": "UNAVAILABLE — point-in-time consensus not connected"
+      },
+      "earnings_expectations": {
+        "guide_midpoint_revenue": 61500,
+        "guide_vs_consensus_revenue_pct": null,
+        "guide_vs_consensus_operating_income_pct": null,
+        "interpretation": "Not scored: comparable dated analyst estimates missing"
       }
     },
     {
@@ -286,7 +292,13 @@
         "forward_operating_income": null,
         "asof": null,
         "vendor": null,
-        "status": "NOT_AVAILABLE_NO_LICENSED_POINT_IN_TIME_CONSENSUS"
+        "status": "UNAVAILABLE — point-in-time consensus not connected"
+      },
+      "earnings_expectations": {
+        "guide_midpoint_revenue": 34800,
+        "guide_vs_consensus_revenue_pct": null,
+        "guide_vs_consensus_operating_income_pct": null,
+        "interpretation": "Not scored: comparable dated analyst estimates missing"
       }
     },
     {
