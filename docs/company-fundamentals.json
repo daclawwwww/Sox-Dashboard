@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "method": "Company incremental profitability research template. Financial values not populated until sourced from dated earnings releases and guidance.",
+  "method": "Incremental operating income ÷ incremental revenue. Reported comparisons and guidance use separate dates/accounting bases; no implied figure is a company forecast of incremental margin. Guide scenarios hold the guided gross-margin and opex assumptions fixed, not sensitivities.",
   "companies": [
     {
       "ticker": "NVDA",
@@ -30,29 +30,38 @@
     },
     {
       "ticker": "MU",
-      "fiscal_period": null,
-      "asof": null,
-      "currency": null,
+      "fiscal_period": "FQ4 2026 / FQ1 2027 guide",
+      "asof": "2026-09-30",
+      "currency": "USD millions",
       "reported": {
-        "prior_revenue": null,
-        "current_revenue": null,
-        "prior_operating_income": null,
-        "current_operating_income": null,
-        "incremental_margin_pct": null
+        "prior_revenue": 41456,
+        "current_revenue": 54229,
+        "prior_operating_income": 33318,
+        "current_operating_income": 43751,
+        "incremental_margin_pct": 81.7,
+        "comparison": "FQ4 2026 vs FQ3 2026, GAAP"
       },
       "guidance": {
-        "baseline_revenue": null,
-        "baseline_operating_income": null,
-        "guided_revenue_low": null,
-        "guided_revenue_high": null,
-        "guided_operating_income_low": null,
-        "guided_operating_income_high": null,
-        "implied_incremental_margin_low_pct": null,
-        "implied_incremental_margin_high_pct": null
+        "baseline_revenue": 54229,
+        "baseline_operating_income": 43751,
+        "guided_revenue_low": 60000,
+        "guided_revenue_high": 63000,
+        "guided_operating_income_low": 49260,
+        "guided_operating_income_high": 51838.5,
+        "implied_incremental_margin_low_pct": 92.2,
+        "implied_incremental_margin_high_pct": 95.5,
+        "basis": "GAAP implied: gross margin 85.95%, operating expenses $2.31bn across revenue guidance $60–63bn. Operating income is analyst-derived; no GAAP operating income guide was explicitly stated.",
+        "guide_midpoint_incremental_margin_pct": 93.5
       },
       "basis": "GAAP unless explicitly labeled otherwise",
-      "sources": [],
-      "status": "Awaiting verified filings and guidance"
+      "sources": [
+        {
+          "title": "Micron FQ4 2026 earnings release (SEC exhibit)",
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm",
+          "date": "2026-09-30"
+        }
+      ],
+      "status": "Sourced 2026-09-30, GAAP sequential operating leverage; guided income analyst-derived"
     },
     {
       "ticker": "AMD",
@@ -82,29 +91,39 @@
     },
     {
       "ticker": "AVGO",
-      "fiscal_period": null,
-      "asof": null,
-      "currency": null,
+      "fiscal_period": "FQ3 2026 / FQ4 2026 guide",
+      "asof": "2026-09-02",
+      "currency": "USD millions",
       "reported": {
-        "prior_revenue": null,
-        "current_revenue": null,
-        "prior_operating_income": null,
-        "current_operating_income": null,
-        "incremental_margin_pct": null
+        "prior_revenue": 15952,
+        "current_revenue": 29591,
+        "prior_operating_income": 5887,
+        "current_operating_income": 15955,
+        "incremental_margin_pct": 73.8,
+        "comparison": "FQ3 2026 vs FQ3 2025, GAAP",
+        "non_gaap_incremental_margin_pct": 70.7
       },
       "guidance": {
-        "baseline_revenue": null,
-        "baseline_operating_income": null,
-        "guided_revenue_low": null,
-        "guided_revenue_high": null,
-        "guided_operating_income_low": null,
-        "guided_operating_income_high": null,
-        "implied_incremental_margin_low_pct": null,
-        "implied_incremental_margin_high_pct": null
+        "baseline_revenue": 29591,
+        "baseline_operating_income": 20095,
+        "guided_revenue_low": 34800,
+        "guided_revenue_high": 34800,
+        "guided_operating_income_low": 22968,
+        "guided_operating_income_high": 22968,
+        "implied_incremental_margin_low_pct": 55.2,
+        "implied_incremental_margin_high_pct": 55.2,
+        "basis": "Non-GAAP Q4 operating-income guide = 66% × $34.8bn, compared with Q3 reported non-GAAP operating income. Sequential guide implied, not GAAP.",
+        "guide_midpoint_incremental_margin_pct": 55.2
       },
       "basis": "GAAP unless explicitly labeled otherwise",
-      "sources": [],
-      "status": "Awaiting verified filings and guidance"
+      "sources": [
+        {
+          "title": "Broadcom FQ3 2026 earnings and FQ4 guide",
+          "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-third-quarter-fiscal-year-2026-financial",
+          "date": "2026-09-02"
+        }
+      ],
+      "status": "Sourced 2026-09-02; GAAP YoY reported / non-GAAP sequential guidance"
     },
     {
       "ticker": "TSM",
