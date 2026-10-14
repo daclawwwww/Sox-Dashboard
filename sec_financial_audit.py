@@ -11,7 +11,7 @@ ROOT=Path(__file__).resolve().parent
 CIKS={"MU":"0000723125","AVGO":"0001730168"}
 TAGS={"revenue":["RevenueFromContractWithCustomerExcludingAssessedTax","Revenues","SalesRevenueNet"],
       "operating_income":["OperatingIncomeLoss"]}
-HEADERS={"User-Agent":os.environ.get("SEC_USER_AGENT","SEMI Research contact research@example.com"),
+HEADERS={"User-Agent":os.environ.get("SEC_USER_AGENT","SEMI research admin contact via SEC_USER_AGENT environment variable"),
          "Accept":"application/json"}
 def companyfacts(cik):
     req=urllib.request.Request("https://data.sec.gov/api/xbrl/companyfacts/CIK"+cik+".json",headers=HEADERS)
@@ -31,7 +31,7 @@ def direct_quarter(record,kind,period_end):
     filed,accession,amount,tag=matched[0]
     return {"value_usd_millions":round(amount,3),"filed":filed,"accession":accession,"tag":tag}
 def main():
-    source=json.loads((ROOT/"docs/company-fundamentals.json").read_text())
+    if not os.environ.get("SEC_USER_AGENT"):\n        raise RuntimeError("Set SEC_USER_AGENT with a real contact address before SEC requests")\n    source=json.loads((ROOT/"docs/company-fundamentals.json").read_text())
     rows=[]
     for company in source["companies"]:
         ticker=company["ticker"]
