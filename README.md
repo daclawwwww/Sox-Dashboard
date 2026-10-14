@@ -13,24 +13,49 @@ requires a FRED key.
 
 ## Price-data safeguards
 
-Both download paths reject empty, undated, duplicate-dated, missing, non-finite,
-non-positive, future-dated, and more-than-five-calendar-day-old closes. SOXX,
-SOXL, and SPY must share their latest observation date. Historical alignment
-uses observed overlapping bars only, with no forward filling. Streamlit checks
-freshness again on each rerun, including cached results. The terminal omits
-lagging auxiliary watchlist rows rather than labeling them with a newer as-of
-date. A rejected download leaves the previously published snapshot unchanged;
-the static site's existing stale-data warning still applies to that snapshot.
+Both download paths use the NYSE regular-session calendar (the common US equity
+session schedule for these instruments), including exchange holidays, early
+closes and New York daylight saving time. Each download run captures one UTC
+cutoff before fetching anything. A daily bar is eligible only after that
+session's scheduled close; an in-progress daily bar is excluded even if Yahoo
+already supplies a numeric close. This establishes session completion, not a
+vendor guarantee that an adjusted price will never be revised.
 
-Validation is deliberately fail-closed: even an invalid historical close blocks
-that download. Missing historical sessions are omitted, so session-count windows
-refer to the available overlapping sample, not a separately verified exchange
-calendar. Feed outages and exchange/vendor date conventions still need real-feed
-validation. These checks do not validate corporate actions or predictive value.
+The expected market date is the latest completed session, separate from the
+actual observed date and the generation timestamp. A missing latest close can
+produce a **clearly labeled fallback of at most one completed session**. Larger
+lags, future/non-session dates, duplicate dates, invalid historical closes,
+infinite or non-positive prices fail closed. No missing prices are forward
+filled. SOXX/SOXL/SPY use their actual overlapping observations; lagging auxiliary
+watchlist rows are omitted. Streamlit rechecks session freshness on cached reruns.
+
+The publisher records each symbol's latest source date, usable completed date,
+missing completed dates and excluded in-progress dates. Snapshot session metadata
+records the UTC cutoff, actual and expected sessions, lag, close times and next
+session close. It logs these diagnostics before rejecting a regressing snapshot.
+A previously published newer snapshot blocks regression only if its completed-
+session metadata is consistent with the calendar and its nonfuture capture
+occurred after that session's close. Legacy snapshots have no reliable fetch
+cutoff and remain unverified, even if generated after the close; they cannot pin
+an invalid market date forever. No existing snapshot is silently certified or
+restored as a finalized close.
+
+The static site displays actual market date, expected completed session and
+capture time separately. Legacy/malformed metadata is unverified, one-session
+fallbacks are warned immediately, and the badge becomes refresh-overdue when the
+next scheduled exchange close passes, even if the JSON does not refresh. It does
+not guess later exchange sessions from weekdays or treat a recent generation
+stamp as fresh market data. Failed publisher runs leave the previous file intact.
+
+Calendar schedules depend on the maintained calendar package and cannot predict
+unannounced exchange closures. These checks do not establish corporate-action
+correctness or predictive value. Historical session gaps remain omitted rather
+than imputed, so indicator windows refer to available overlapping observations.
 
 ## Offline tests
 
-Run `pip install pytest` and `python -m pytest -q`. Tests cover price validation,
+Run `pip install -r requirements.txt pytest`, `python -m pytest -q`, and
+`node --test tests/test_freshness.js`. Tests cover price validation,
 the current Streamlit app (including outage and warm-cache reruns), and the
 terminal publisher using synthetic downloads and temporary output files. They
 do not call live Yahoo/FRED services, refresh committed snapshots, or deploy.
