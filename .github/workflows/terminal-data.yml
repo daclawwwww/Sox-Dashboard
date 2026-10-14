@@ -23,6 +23,8 @@ jobs:
           cache: pip
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Compile research pipeline Python files
+        run: python -m compileall -q sec_financial_audit.py validate_company_data.py publish_terminal.py publish_intelligence.py committee_audit.py archive_assessment.py backtest.py
       - name: Validate company financial calculations
         run: python validate_company_data.py
         continue-on-error: true
