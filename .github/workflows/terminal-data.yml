@@ -30,9 +30,6 @@ jobs:
         if: ${{ env.SEC_USER_AGENT != '' }}
         run: python sec_financial_audit.py
         continue-on-error: true
-      - name: SEC companyfacts reconciliation (read-only)
-        run: python sec_financial_audit.py
-        continue-on-error: true
       - name: Build market snapshot
         run: python publish_terminal.py
       - name: Refresh sourced intelligence headlines
