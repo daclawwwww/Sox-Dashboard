@@ -69,6 +69,11 @@
           "title": "Micron fiscal Q3 2026 results",
           "url": "https://investors.micron.com/financials/quarterly-results/default.aspx",
           "date": "2026-06-24"
+        },
+        {
+          "title": "Micron FQ1 2026 company results",
+          "url": "https://investors.micron.com/news/press-release/2025/Micron-Technology-Inc--Reports-Results-for-the-First-Quarter-of-Fiscal-2026-12-17-2025/default.aspx",
+          "date": "2025-12-17"
         }
       ],
       "status": "Sourced 2026-09-30, GAAP sequential operating leverage; guided income analyst-derived",
@@ -77,7 +82,7 @@
           "period": "FQ1 2026",
           "revenue": 13643,
           "operating_income": 6136,
-          "publication_date": "2026-03-18",
+          "publication_date": "2025-12-17",
           "operating_margin_pct": 45,
           "sequential_incremental_margin_pct": null,
           "accounting_basis": "GAAP",
@@ -193,6 +198,11 @@
           "title": "Broadcom fiscal Q2 2026 results",
           "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-second-quarter-fiscal-year-2026-financial",
           "date": "2026-06-03"
+        },
+        {
+          "title": "Broadcom FQ4 2025 company results",
+          "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-fourth-quarter-and-fiscal-year-2025",
+          "date": "2025-12-11"
         }
       ],
       "status": "Sourced 2026-09-02; GAAP YoY reported / non-GAAP sequential guidance",
@@ -201,7 +211,7 @@
           "period": "FQ4 2025",
           "revenue": 18015,
           "operating_income": 7508,
-          "publication_date": "2026-03-04",
+          "publication_date": "2025-12-11",
           "operating_margin_pct": 41.7,
           "sequential_incremental_margin_pct": null,
           "accounting_basis": "GAAP",
@@ -353,5 +363,15 @@
       "sources": [],
       "status": "Awaiting verified filings and guidance"
     }
-  ]
+  ],
+  "audit": {
+    "audited_asof": "2026-10-14",
+    "status": "Core reported metrics verified against primary company earnings releases; guidance-derived operating income is calculated, not reported.",
+    "important_limitations": [
+      "Current historical series is manually transcribed, not automatically refreshed.",
+      "No point-in-time Wall Street consensus has been collected.",
+      "GAAP and non-GAAP margins must not be compared directly.",
+      "Publication date corrected for MU FQ1 2026 and AVGO FQ4 2025."
+    ]
+  }
 }
