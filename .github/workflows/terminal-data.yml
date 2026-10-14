@@ -13,6 +13,8 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -26,8 +28,6 @@ jobs:
         continue-on-error: true
       - name: Optional SEC company fact audit
         if: ${{ env.SEC_USER_AGENT != '' }}
-        env:
-          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
         run: python sec_financial_audit.py
         continue-on-error: true
       - name: Build market snapshot
