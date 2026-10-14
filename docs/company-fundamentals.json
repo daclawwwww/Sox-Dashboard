@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "method": "Company incremental profitability research template. Financial values not populated until sourced from dated earnings releases and guidance.",
+  "companies": [
+    {
+      "ticker": "NVDA",
+      "fiscal_period": null,
+      "asof": null,
+      "currency": null,
+      "reported": {
+        "prior_revenue": null,
+        "current_revenue": null,
+        "prior_operating_income": null,
+        "current_operating_income": null,
+        "incremental_margin_pct": null
+      },
+      "guidance": {
+        "baseline_revenue": null,
+        "baseline_operating_income": null,
+        "guided_revenue_low": null,
+        "guided_revenue_high": null,
+        "guided_operating_income_low": null,
+        "guided_operating_income_high": null,
+        "implied_incremental_margin_low_pct": null,
+        "implied_incremental_margin_high_pct": null
+      },
+      "basis": "GAAP unless explicitly labeled otherwise",
+      "sources": [],
+      "status": "Awaiting verified filings and guidance"
+    },
+    {
+      "ticker": "MU",
+      "fiscal_period": null,
+      "asof": null,
+      "currency": null,
+      "reported": {
+        "prior_revenue": null,
+        "current_revenue": null,
+        "prior_operating_income": null,
+        "current_operating_income": null,
+        "incremental_margin_pct": null
+      },
+      "guidance": {
+        "baseline_revenue": null,
+        "baseline_operating_income": null,
+        "guided_revenue_low": null,
+        "guided_revenue_high": null,
+        "guided_operating_income_low": null,
+        "guided_operating_income_high": null,
+        "implied_incremental_margin_low_pct": null,
+        "implied_incremental_margin_high_pct": null
+      },
+      "basis": "GAAP unless explicitly labeled otherwise",
+      "sources": [],
+      "status": "Awaiting verified filings and guidance"
+    },
+    {
+      "ticker": "AMD",
+      "fiscal_period": null,
+      "asof": null,
+      "currency": null,
+      "reported": {
+        "prior_revenue": null,
+        "current_revenue": null,
+        "prior_operating_income": null,
+        "current_operating_income": null,
+        "incremental_margin_pct": null
+      },
+      "guidance": {
+        "baseline_revenue": null,
+        "baseline_operating_income": null,
+        "guided_revenue_low": null,
+        "guided_revenue_high": null,
+        "guided_operating_income_low": null,
+        "guided_operating_income_high": null,
+        "implied_incremental_margin_low_pct": null,
+        "implied_incremental_margin_high_pct": null
+      },
+      "basis": "GAAP unless explicitly labeled otherwise",
+      "sources": [],
+      "status": "Awaiting verified filings and guidance"
+    },
+    {
+      "ticker": "AVGO",
+      "fiscal_period": null,
+      "asof": null,
+      "currency": null,
+      "reported": {
+        "prior_revenue": null,
+        "current_revenue": null,
+        "prior_operating_income": null,
+        "current_operating_income": null,
+        "incremental_margin_pct": null
+      },
+      "guidance": {
+        "baseline_revenue": null,
+        "baseline_operating_income": null,
+        "guided_revenue_low": null,
+        "guided_revenue_high": null,
+        "guided_operating_income_low": null,
+        "guided_operating_income_high": null,
+        "implied_incremental_margin_low_pct": null,
+        "implied_incremental_margin_high_pct": null
+      },
+      "basis": "GAAP unless explicitly labeled otherwise",
+      "sources": [],
+      "status": "Awaiting verified filings and guidance"
+    },
+    {
+      "ticker": "TSM",
+      "fiscal_period": null,
+      "asof": null,
+      "currency": null,
+      "reported": {
+        "prior_revenue": null,
+        "current_revenue": null,
+        "prior_operating_income": null,
+        "current_operating_income": null,
+        "incremental_margin_pct": null
+      },
+      "guidance": {
+        "baseline_revenue": null,
+        "baseline_operating_income": null,
+        "guided_revenue_low": null,
+        "guided_revenue_high": null,
+        "guided_operating_income_low": null,
+        "guided_operating_income_high": null,
+        "implied_incremental_margin_low_pct": null,
+        "implied_incremental_margin_high_pct": null
+      },
+      "basis": "GAAP unless explicitly labeled otherwise",
+      "sources": [],
+      "status": "Awaiting verified filings and guidance"
+    },
+    {
+      "ticker": "AMAT",
+      "fiscal_period": null,
+      "asof": null,
+      "currency": null,
+      "reported": {
+        "prior_revenue": null,
+        "current_revenue": null,
+        "prior_operating_income": null,
+        "current_operating_income": null,
+        "incremental_margin_pct": null
+      },
+      "guidance": {
+        "baseline_revenue": null,
+        "baseline_operating_income": null,
+        "guided_revenue_low": null,
+        "guided_revenue_high": null,
+        "guided_operating_income_low": null,
+        "guided_operating_income_high": null,
+        "implied_incremental_margin_low_pct": null,
+        "implied_incremental_margin_high_pct": null
+      },
+      "basis": "GAAP unless explicitly labeled otherwise",
+      "sources": [],
+      "status": "Awaiting verified filings and guidance"
+    },
+    {
+      "ticker": "LRCX",
+      "fiscal_period": null,
+      "asof": null,
+      "currency": null,
+      "reported": {
+        "prior_revenue": null,
+        "current_revenue": null,
+        "prior_operating_income": null,
+        "current_operating_income": null,
+        "incremental_margin_pct": null
+      },
+      "guidance": {
+        "baseline_revenue": null,
+        "baseline_operating_income": null,
+        "guided_revenue_low": null,
+        "guided_revenue_high": null,
+        "guided_operating_income_low": null,
+        "guided_operating_income_high": null,
+        "implied_incremental_margin_low_pct": null,
+        "implied_incremental_margin_high_pct": null
+      },
+      "basis": "GAAP unless explicitly labeled otherwise",
+      "sources": [],
+      "status": "Awaiting verified filings and guidance"
+    },
+    {
+      "ticker": "KLAC",
+      "fiscal_period": null,
+      "asof": null,
+      "currency": null,
+      "reported": {
+        "prior_revenue": null,
+        "current_revenue": null,
+        "prior_operating_income": null,
+        "current_operating_income": null,
+        "incremental_margin_pct": null
+      },
+      "guidance": {
+        "baseline_revenue": null,
+        "baseline_operating_income": null,
+        "guided_revenue_low": null,
+        "guided_revenue_high": null,
+        "guided_operating_income_low": null,
+        "guided_operating_income_high": null,
+        "implied_incremental_margin_low_pct": null,
+        "implied_incremental_margin_high_pct": null
+      },
+      "basis": "GAAP unless explicitly labeled otherwise",
+      "sources": [],
+      "status": "Awaiting verified filings and guidance"
+    }
+  ]
+}
