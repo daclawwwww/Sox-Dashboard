@@ -86,7 +86,9 @@
           "operating_margin_pct": 45,
           "sequential_incremental_margin_pct": null,
           "accounting_basis": "GAAP",
-          "units": "USD millions"
+          "units": "USD millions",
+          "period_end": "2025-11-27",
+          "sec_validation_status": "NOT_YET_RUN"
         },
         {
           "period": "FQ2 2026",
@@ -96,7 +98,9 @@
           "operating_margin_pct": 67.6,
           "sequential_incremental_margin_pct": 97.9,
           "accounting_basis": "GAAP",
-          "units": "USD millions"
+          "units": "USD millions",
+          "period_end": "2026-02-26",
+          "sec_validation_status": "NOT_YET_RUN"
         },
         {
           "period": "FQ3 2026",
@@ -106,7 +110,9 @@
           "operating_margin_pct": 80.4,
           "sequential_incremental_margin_pct": 97.7,
           "accounting_basis": "GAAP",
-          "units": "USD millions"
+          "units": "USD millions",
+          "period_end": "2026-05-28",
+          "sec_validation_status": "NOT_YET_RUN"
         },
         {
           "period": "FQ4 2026",
@@ -116,7 +122,9 @@
           "operating_margin_pct": 80.7,
           "sequential_incremental_margin_pct": 81.7,
           "accounting_basis": "GAAP",
-          "units": "USD millions"
+          "units": "USD millions",
+          "period_end": "2026-08-27",
+          "sec_validation_status": "NOT_YET_RUN"
         }
       ],
       "guide_vs_history": {
@@ -128,6 +136,13 @@
         ],
         "comparison": "Guide calculations are a forward, company-assumption-based scenario. Historical rows are reported GAAP. Do not compare directly if guidance uses a non-GAAP basis.",
         "consensus_gap": "Unavailable: point-in-time consensus operating income not provided"
+      },
+      "consensus": {
+        "forward_revenue": null,
+        "forward_operating_income": null,
+        "asof": null,
+        "vendor": null,
+        "status": "NOT_AVAILABLE_NO_LICENSED_POINT_IN_TIME_CONSENSUS"
       }
     },
     {
@@ -215,7 +230,9 @@
           "operating_margin_pct": 41.7,
           "sequential_incremental_margin_pct": null,
           "accounting_basis": "GAAP",
-          "units": "USD millions"
+          "units": "USD millions",
+          "period_end": "2025-11-02",
+          "sec_validation_status": "NOT_YET_RUN"
         },
         {
           "period": "FQ1 2026",
@@ -225,7 +242,9 @@
           "operating_margin_pct": 44.3,
           "sequential_incremental_margin_pct": 81.4,
           "accounting_basis": "GAAP",
-          "units": "USD millions"
+          "units": "USD millions",
+          "period_end": "2026-02-01",
+          "sec_validation_status": "NOT_YET_RUN"
         },
         {
           "period": "FQ2 2026",
@@ -235,7 +254,9 @@
           "operating_margin_pct": 48.6,
           "sequential_incremental_margin_pct": 77.4,
           "accounting_basis": "GAAP",
-          "units": "USD millions"
+          "units": "USD millions",
+          "period_end": "2026-05-03",
+          "sec_validation_status": "NOT_YET_RUN"
         },
         {
           "period": "FQ3 2026",
@@ -245,7 +266,9 @@
           "operating_margin_pct": 53.9,
           "sequential_incremental_margin_pct": 69.8,
           "accounting_basis": "GAAP",
-          "units": "USD millions"
+          "units": "USD millions",
+          "period_end": "2026-08-02",
+          "sec_validation_status": "NOT_YET_RUN"
         }
       ],
       "guide_vs_history": {
@@ -257,6 +280,13 @@
         ],
         "comparison": "Guide calculations are a forward, company-assumption-based scenario. Historical rows are reported GAAP. Do not compare directly if guidance uses a non-GAAP basis.",
         "consensus_gap": "Unavailable: point-in-time consensus operating income not provided"
+      },
+      "consensus": {
+        "forward_revenue": null,
+        "forward_operating_income": null,
+        "asof": null,
+        "vendor": null,
+        "status": "NOT_AVAILABLE_NO_LICENSED_POINT_IN_TIME_CONSENSUS"
       }
     },
     {
