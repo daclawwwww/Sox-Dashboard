@@ -24,6 +24,12 @@ jobs:
       - name: Validate company financial calculations
         run: python validate_company_data.py
         continue-on-error: true
+      - name: Optional SEC company fact audit
+        if: ${{ env.SEC_USER_AGENT != '' }}
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: python sec_financial_audit.py
+        continue-on-error: true
       - name: Build market snapshot
         run: python publish_terminal.py
       - name: Refresh sourced intelligence headlines
@@ -39,7 +45,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/market.json
-          git add docs/intelligence.json docs/committee.json docs/assessment-history.json 2>/dev/null || true
+          git add docs/intelligence.json docs/committee.json docs/assessment-history.json docs/financial-audit.json 2>/dev/null || true
           if ! git diff --cached --quiet; then
             git commit -m "Update terminal end-of-day market snapshot"
             git push
