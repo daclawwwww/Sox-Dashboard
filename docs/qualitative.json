@@ -1,58 +1,91 @@
 {
   "status": "published",
-  "asof": "2026-10-14",
-  "published_utc": "2026-10-14T13:40:28.855Z",
-  "headline": "Fundamentals cautiously constructive; SOXL tactical risk elevated",
-  "overall": "Price-blind research: ASML's October 14 Q3 results confirm robust advanced chipmaking-equipment demand, including €11.7bn net sales, 57.5% gross margin, and an outlook of €44–45bn in full-year sales. ASML says customers are increasing medium-term equipment-demand forecasts; this does not directly verify hyperscaler return on AI investment or aggregate SOXX earnings revisions. Realized DRAM/NAND contract pricing, point-in-time consensus and the profitability implications of Chinese competition require further evidence. Technical comparison is separate: the last reviewed sector score was neutral (4/7) as of October 12, not a verified current intraday score. Strong supply-chain demand alone is not sufficient evidence to buy a 3× leveraged ETF during a selloff.",
+  "asof": "2026-10-18",
+  "published_utc": "2026-10-18T13:21:48.480Z",
+  "headline": "Supplier outlook constructive; financing concerns and Friday momentum defensive",
+  "overall": "Price-blind: Microsoft and Meta disclosed elevated capex plans; TSMC and ASML guided strong equipment/leading-edge demand. TrendForce Q4 DRAM/NAND price estimates are not realized data. CoreWeave's reported backlog requires service delivery, and no confirmed chip order cancellations were found. Dated SOXX-wide forward EPS consensus is missing. Independent thesis: AI customer funding constraints could precede semiconductor order revisions; not yet verified. Post-fundamental technical check: Oct 16 SOXX $493.39 (-4.14%), SOXL $93.67 (-12.74%). The repository's Oct 15 DEFENSIVE 3/7 score is stale and not recomputed. No prospective outcome evidence yet for qualitative forecasting effectiveness.",
   "factors": [
     {
       "name": "AI capex",
-      "assessment": "Constructive equipment demand; direct capex comparison missing",
-      "reason": "ASML's primary-source outlook describes rising customers' equipment forecasts and demand extending through 2028, but this is not a directly measured current hyperscaler capex revision."
+      "assessment": "Constructive plans; funding risk (confidence medium)",
+      "reason": "Facts: Microsoft Jul 29 $41bn quarterly capex; Meta Jul 29 2026 $130-145bn guidance. Expectation: TrendForce Oct 14 projected nine-CSP 2027 capex >$1.5tn, not actual spending. Hypothesis: funding limits some projects. Bull: stronger monetization; bear: reduced budgets. Falsify with guide cuts or continued funded deliveries respectively. Missing: standardized guide baselines and ROI."
     },
     {
       "name": "Semiconductor cycle",
-      "assessment": "Constructive equipment cycle; memory pricing unverified",
-      "reason": "ASML reported Q3 net sales €11.7bn and 57.5% gross margin. Actual DRAM and NAND contract-price trajectories and inventory levels were not independently verified in this assessment."
+      "assessment": "Memory tight; pricing forecast not verified realization (confidence medium)",
+      "reason": "Fact: Micron Sep 30 Q4 revenue $54.23bn. Expectation: TrendForce Sep 30 forecast Q4 DRAM prices +10-15%, NAND +15-20% QoQ. Hypothesis: server strong, consumer weak. Bull: scarcity; bear: inventory rebuild. Falsify with observed price declines or confirmed sustained scarcity. Missing: realized contract prices, inventories."
     },
     {
       "name": "Earnings revisions",
-      "assessment": "Insufficient point-in-time consensus data",
-      "reason": "ASML's strong outlook is company-specific. It does not establish whether constituent-weighted SOXX forward earnings expectations improved relative to prior consensus."
+      "assessment": "Strong supplier guidance; SOXX EPS consensus missing (confidence low on revisions)",
+      "reason": "Facts: TSMC Oct 15 guided Q4 revenue $52.3-54.3bn; ASML Oct 14 reported €11.7bn Q3 sales. Expectations: company guides only. Hypothesis: strength concentrated. Bull: broader EPS raises; bear: cuts despite sales. Falsify with vendor dated constituent EPS revisions. Missing: point-in-time consensus."
     },
     {
       "name": "Competition",
-      "assessment": "Material structural risk, magnitude unresolved",
-      "reason": "Chinese memory competition and hyperscaler custom-chip adoption could redistribute profits. Manufacturing yields, volumes and customer shifts have not been verified here."
+      "assessment": "Custom chip diffusion (confidence medium)",
+      "reason": "Facts: Microsoft Oct 12 described 2027 Maia rollout; Broadcom Sep 2 guided AI semiconductor growth. Expectations: roadmap/company guidance. Hypothesis: ASICs take inference share. Bull: total market expands; bear: GPU margins compress. Falsify via verified adoption/economics. Missing: shares, volumes, costs per token."
     },
     {
       "name": "Macro geopolitics",
-      "assessment": "Elevated uncertainty; no verified new policy shock",
-      "reason": "Export restrictions, funding costs and geopolitics remain downside risks; no newly dated October 14 policy change is asserted."
+      "assessment": "Funding and policy risk (confidence medium)",
+      "reason": "Facts: BLS Oct 14 CPI 3.7% YoY; Oct 15 PPI 6.3% YoY. No new Oct 18 export policy verified. Hypothesis: high borrowing costs delay marginal deployments. Bull: disinflation; bear: higher cost/export limits. Falsify with improving funding spreads and stable commitments. Missing: borrower terms, enacted policy details."
     }
   ],
   "risks": [
-    "Continued SOXL losses and volatility drag during a prolonged correction.",
-    "Strong equipment orders may coexist with stretched chip-stock expectations.",
-    "Unexpected memory supply expansion or custom accelerator adoption may erode margins.",
-    "Further export restrictions or reduced AI financing may reduce order growth."
+    "CoreWeave's Aug 11 disclosed $104bn backlog is conditional on delivery; no verified equipment-order cancellation.",
+    "Leveraged SOXL is exposed to path-dependent drawdowns.",
+    "Latest repository technical score uses Oct 15 data, not Oct 16."
   ],
   "invalidation": [
-    "Reduce fundamental confidence if multiple hyperscalers cut published spending guidance or equipment manufacturers lower forward-order outlooks.",
-    "Confirm quarter-over-quarter realized memory contract prices and capacity before revising memory-cycle expectations.",
-    "Compare dated SOXX constituent consensus estimates and actual earnings revisions before asserting an expectations gap.",
-    "Keep price movements separate from the first fundamental assessment; do not reinterpret facts purely because SOXL declines."
+    "Require primary customer order deferrals before asserting AI hardware demand contraction.",
+    "Use realized Q4 memory prices and dated SOXX consensus before scoring forecasts.",
+    "Keep forecast baselines/probabilities unchanged; no qualitative skill claim without prospective outcomes."
   ],
   "sources": [
     {
-      "title": "ASML Q3 2026 financial results and outlook (company release)",
+      "title": "Microsoft FY26 Q4",
+      "url": "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4",
+      "date": "2026-07-29"
+    },
+    {
+      "title": "Meta Q2",
+      "url": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/",
+      "date": "2026-07-29"
+    },
+    {
+      "title": "TrendForce CSP forecast",
+      "url": "https://www.trendforce.com/presscenter/news/20261014-13269.html",
+      "date": "2026-10-14"
+    },
+    {
+      "title": "TrendForce memory forecast",
+      "url": "https://www.trendforce.com/presscenter/news/20260930-13258.html",
+      "date": "2026-09-30"
+    },
+    {
+      "title": "TSMC Q3",
+      "url": "https://investor.tsmc.com/english/quarterly-results/2026/q3",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "ASML Q3",
       "url": "https://www.investor.asml.com/news-releases/news-release-details/asml-reports-eu11.7-billion-total-net-sales-and-eu5.0-billion-net-income-q3-2026",
       "date": "2026-10-14"
     },
     {
-      "title": "Reuters: ASML orders and AI demand outlook",
-      "url": "https://www.reuters.com/business/asml-forecasts-q4-sales-above-expectations-ai-chip-demand-2026-10-14/",
+      "title": "CoreWeave Q2",
+      "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/",
+      "date": "2026-08-11"
+    },
+    {
+      "title": "BLS CPI",
+      "url": "https://www.bls.gov/news.release/archives/cpi_10142026.htm",
       "date": "2026-10-14"
+    },
+    {
+      "title": "BLS PPI",
+      "url": "https://www.bls.gov/news.release/archives/ppi_10152026.htm",
+      "date": "2026-10-15"
     }
   ]
 }
