@@ -1,111 +1,138 @@
 {
   "status": "published",
-  "asof": "2026-10-19",
-  "published_utc": "2026-10-19T14:04:42.475Z",
-  "headline": "Primary-source semiconductor demand resilient; AI infrastructure funding and momentum remain risks",
-  "overall": "Price-blind: Microsoft/Meta large published capex plans; TSMC/ASML strong guidance; Micron record memory results; sector F12M EPS revisions unverified. Financing concerns may precede hardware order cuts, but none independently verified. Oct 19 Reuters reported SOXX +3.6% premarket after Oct 16 close $493.39; not a live cash-session quote. Repo technical score 3/7 DEFENSIVE is dated Oct 15 and stale. No demonstrated qualitative forecasting skill without prospective scoring.",
+  "asof": "2026-10-22",
+  "published_utc": "2026-10-22T13:36:35.179Z",
+  "headline": "Meta raises 2026 capex floor; Lam/TSMC/ASML and memory demand resilient, but SOXX short-term momentum and AI credit recovery unconfirmed",
+  "overall": "PRICE-BLIND FIRST: Meta Oct 21 Q3 disclosed $34.91bn capex and 2026 capex outlook $135-145bn, versus prior $130-145bn. Microsoft Jul 29 disclosed $41bn quarter capex. TrendForce projects continued server memory price gains; Micron, TSMC, ASML and Lam published strong supplier results; point-in-time, constituent-weighted SOXX F12M EPS revisions NOT VERIFIED. Independent hypothesis: well-funded hyperscalers continue purchases while leveraged neocloud funding could constrain incremental orders; cancellations NOT verified. AFTER fundamentals: Oct 21 SOXX $510.36, below 20d SMA $550.69 and 50d SMA $535.44, above 200d SMA $470.53, RSI14 39.37, MACD -8.53 (ChartMill; provider-dependent). Oct 22 early 05:09 ET premarket quote $491.53 is stale, not a 09:32 regular-session print. Oct 21 CoreWeave 2032 notes yielded 14.68%; unsecured credit remains distressed; Nebius Oct 22 Citi $3.5bn secured/short-term facility signals selective access but not broad normalization. JOINT sustained SOXX momentum+AI credit improvement NOT confirmed; one-day rebound is insufficient. Forecast probabilities and baselines remain unchanged/unverified. No demonstrated qualitative forecast skill without prospective outcome scoring.",
   "factors": [
     {
       "name": "AI capex",
-      "assessment": "Constructive plans, funding uncertainty; confidence medium",
-      "reason": "Jul 29 Microsoft $41bn quarterly capex; Meta 2026 $130-145bn guidance. TrendForce Oct 14 projects nine-cloud 2027 >$1.5tn (forecast, not actual). Hypothesis: well-funded buyers sustain spending, weaker borrowers delay. Bull: monetization; bear: lower ROI. Falsifier: guide cuts or continued funded orders. Missing: comparable baselines/ROI."
+      "assessment": "Constructive disclosed spending; 2027 outlook uncertainty; confidence medium-high for published facts, medium for thesis",
+      "reason": "Verified: Meta Oct 21 Q3 capex including finance-lease principal $34.91bn; 2026 company outlook $135-145bn narrowed from $130-145bn. Microsoft Jul 29 quarter capex $41bn, about two-thirds CPUs/GPUs. Documented expectation: TrendForce Oct 14 estimates nine CSPs 2026 capex $957bn and 2027 >$1.5tn; inflation/advance payments inflate nominal totals. Independent hypothesis: cash-rich buyers maintain funded orders while highly leveraged builders delay marginal projects. Bull: AI monetization and cash generation improve. Bear: capital intensity exceeds ROI, construction and orders slip. Falsifiers: multiple comparable capex guide cuts OR continued funded deliveries with better FCF. Missing: comparable capex definitions, AI ROI, project delivery, customer mix."
     },
     {
       "name": "Semiconductor cycle",
-      "assessment": "Memory tight, consumer divergence; confidence medium",
-      "reason": "Micron Sep 30 Q4 $54.23bn revenue. TrendForce Sep 30 projects Q4 DRAM +10-15%, NAND +15-20% QoQ; these are forecasts. Hypothesis: enterprise memory stronger than consumer. Bull: scarcity; bear: inventory. Falsifier: realized price declines/inventory buildup. Missing: contract settlements, shipments."
+      "assessment": "AI/server memory tight, consumer demand divergent; confidence medium for outlook, high for disclosed company revenue",
+      "reason": "Verified: Micron Sep 30 reported FY26 Q4 revenue $54.23bn versus $41.46bn in preceding quarter. Documented expectation: TrendForce Sep 30 projects Q4 conventional DRAM contract prices +10-15% QoQ and NAND +15-20%; enterprise SSD relatively strongest. These are forecasts, NOT realized settlements. Independent hypothesis: AI server demand keeps memory scarce as PC/handset customers resist prices. Bull: RDIMM/HBM/enterprise SSD scarcity persists. Bear: inventories build or enterprise orders are delayed. Falsifiers: settled contract-price declines plus rising inventory versus sustained paid orders and tight supply. Missing: comparable settled prices, bit shipment, supplier inventory, HBM yields and capacity."
     },
     {
       "name": "Earnings revisions",
-      "assessment": "Strong supplier guidance; SOXX revisions not measured; confidence low on revisions",
-      "reason": "TSMC Oct 15 guided Q4 revenue $52.3-54.3bn; ASML Oct 14 guided Q4 €14.2-15.2bn. These are company plans, not index EPS revisions. Hypothesis: strength concentrated. Bull: broader upgrades; bear: delayed cuts. Falsifier: dated index-weighted F12M consensus changes. Missing: vendor series."
+      "assessment": "Positive supplier results and guidance; SOXX aggregate forward revisions unmeasured; confidence high in company disclosures, low in revisions",
+      "reason": "Verified: TSMC Oct 15 Q3 revenue $46.72bn vs $44.6-45.8bn prior guidance; Q4 company guide $52.3-54.3bn. ASML Oct 14 Q3 net sales EUR11.7bn and Q4 guide EUR14.2-15.2bn. Lam Oct 21 Sep quarter revenue $8.22bn (+22% QoQ), nonGAAP operating margin 40.2% vs 38.4%, Dec quarter guide $8.6bn +/- $0.4bn. Supermicro Oct 20 prelim unaudited revenue $18.5-19.5bn vs $14.5-15.5bn prior company guide; final unverified. Documented company outlooks NOT index EPS revisions. Independent hypothesis: AI exposure supports incremental supplier profit but growth concentrated. Bull: more sectors revise higher with operating leverage. Bear: financed-customer order cuts and mix pressure produce negative revisions. Falsifier: dated point-in-time index-weighted forward EPS changes. Missing: stable SOXX constituents, historical vendor estimate series, operating profit attribution, supplier order cancellations."
     },
     {
       "name": "Competition",
-      "assessment": "Custom inference silicon expanding; confidence medium",
-      "reason": "Microsoft Oct 12 Maia 300 2027 roadmap (efficiency claims unverified). Broadcom Sep 2 reported AI semiconductor revenue $16.7bn, guided $21.7bn. Hypothesis: ASIC adoption grows. Bull: expanding TAM; bear: GPU pricing pressure. Falsifier: failed deployment or verified weak cost/token. Missing: volumes/share."
+      "assessment": "ASIC/custom accelerator demand broadening; issuer profitability uncertain; confidence medium",
+      "reason": "Verified: Broadcom Sep 2 AI semiconductor Q3 revenue $16.7bn; company Q4 expectation $21.7bn. Microsoft Oct 12 announced Maia 300 plans for 2027 deployment. Microsoft's reported efficiency advantages are corporate projections, not independent validation. Independent hypothesis: inference ASICs expand the compute silicon TAM while changing merchant GPU share. Bull: GPU/ASIC adoption both rise as total workloads grow. Bear: custom silicon compresses merchant GPU margins. Falsifiers: low verified Maia throughput/unit economics, production delays, or adoption/merchant GPU pricing data inconsistent with substitution. Missing: unit shipments, independently measured cost/token, accelerator market share, foundry capacity allocations."
     },
     {
       "name": "Macro geopolitics",
-      "assessment": "Funding risk elevated; confidence medium",
-      "reason": "BLS Oct 14 CPI 3.7% YoY, Oct 15 PPI 6.3% YoY. BIS Jan 13 China advanced-chip case-by-case licensing conditions. Rate consensus unverified. Hypothesis: high funding costs weigh on marginal builds. Bull: disinflation; bear: costly capital/export limits. Falsifier: falling costs and continued orders. Missing: credit spreads, export exposure."
+      "assessment": "Inflation and export-control uncertainty elevate funding risk; confidence high for releases, medium for future impact",
+      "reason": "Verified: BLS Oct 14 Sep CPI +3.7% YoY, core +2.6%; Oct 15 PPI final demand +6.3% YoY. BIS Jan 13 2026 specified advanced-chip exports to China move to conditioned case-by-case licensing. Documented policy and data, NOT predicted Fed path or licensing outcomes. Independent hypothesis: high discount rates impair marginal leased-GPU project economics and policy adds order uncertainty. Bull: lower inflation/financing costs with stable approved exports. Bear: sticky inflation, capital restrictions, further export disruptions. Falsifiers: improved observed debt pricing and funded deployments OR actual order/export-license changes. Missing: comparable credit spreads and all-in rates, rate consensus, permit/license approvals, borrower project economics."
     }
   ],
   "risks": [
-    "CoreWeave Aug 11 $104bn backlog depends on service delivery. Sep 17 reported higher pricing for short-duration compute capacity, which does not eliminate funding risk.",
-    "TrendForce Oct 19 forecasts optical-fiber shortage from data center buildout; not evidence of AI project ROI.",
-    "SOXX Oct 19 bounce unconfirmed as sustained reversal; last 3/7 terminal signal dated Oct 15."
+    "Credit watch: CoreWeave Oct 20 9.75% October 2031 notes yielded 15.58% per Benzinga (10:50 ET); Oct 21 approximate 15% in subsequent Benzinga report; the 9.625% July 2032 notes yielded 14.68% Oct 21. Approximate/not matched snapshots cannot demonstrate sustained credit improvement.",
+    "Reuters Oct 22 11:02 UTC: Nebius obtained $3.5bn Citi 364-day facility at term SOFR+275bps for data-center/GPU purchases; positive selective funding, but short tenor adds refinancing risk, not a sign all borrowers have normalized access.",
+    "SOXX Oct 21 completed-session recovery (+2.07%) did not repair trend below 20d/50d SMA or MACD. Oct 22 early premarket decline is an explicitly stale observation, not a verified 09:32 live quote.",
+    "AI infrastructure demand may be strong while debt-financed capacity faces capital-market constraints; no independently verified broad GPU order cancellations."
   ],
   "invalidation": [
-    "Require confirmed hardware order changes to establish demand contraction.",
-    "Require observed memory pricing and point-in-time EPS history; keep prior forecast null probabilities and missing baselines.",
-    "No prospective outcome-scoring record of qualitative forecasting effectiveness."
+    "To establish a negative AI demand shock, require confirmed canceled/delayed hardware deliveries or multiple comparable hyperscaler capex cuts, not bond yields alone.",
+    "For upgrades, require time-aligned improving SOXX momentum AND verifiable multi-borrower comparable bond/CDS tightening sustained over sessions, not one financing announcement.",
+    "Keep Q4 forecast probabilities null and baseline fields explicitly unverified until dated consistent data exist; never retrospectively rewrite forecast records.",
+    "Qualitative forecasting efficacy is unmeasured without prospective logged predictions and subsequent scored outcomes."
   ],
   "sources": [
     {
-      "title": "Microsoft FY26 Q4",
+      "title": "Meta Q3 2026 earnings release",
+      "url": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Third-Quarter-2026-Results/default.aspx",
+      "date": "2026-10-21"
+    },
+    {
+      "title": "Microsoft FY26 Q4 earnings call",
       "url": "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4",
       "date": "2026-07-29"
     },
     {
-      "title": "Meta Q2",
-      "url": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx",
-      "date": "2026-07-29"
-    },
-    {
-      "title": "TrendForce hyperscaler forecast",
+      "title": "TrendForce nine-CSP capex outlook",
       "url": "https://www.trendforce.com/presscenter/news/20261014-13269.html",
       "date": "2026-10-14"
     },
     {
-      "title": "TrendForce memory",
+      "title": "TrendForce Q4 DRAM NAND forecast",
       "url": "https://www.trendforce.com/presscenter/news/20260930-13258.html",
       "date": "2026-09-30"
     },
     {
-      "title": "Micron Q4",
-      "url": "https://investors.micron.com/financials/quarterly-results/default.aspx",
+      "title": "Micron fiscal Q4 results",
+      "url": "https://investors.micron.com/news/press-release/2026/Micron-Technology-Inc--Reports-Record-Fiscal-Fourth-Quarter-and-Full-Year-2026-Results/default.aspx",
       "date": "2026-09-30"
     },
     {
-      "title": "TSMC Q3",
+      "title": "TSMC 2026 Q3 results and Q4 guide",
       "url": "https://investor.tsmc.com/english/quarterly-results/2026/q3",
       "date": "2026-10-15"
     },
     {
-      "title": "ASML Q3",
-      "url": "https://www.investor.asml.com/news-releases/news-release-details/asml-reports-eu11.7-billion-total-net-sales-and-eu5.0-billion-net-income-q3-2026",
+      "title": "ASML Q3 results",
+      "url": "https://investor.asml.com/news-releases/news-release-details/asml-reports-eu11.7-billion-total-net-sales-and-eu5.0-billion-net-income-q3-2026",
       "date": "2026-10-14"
     },
     {
-      "title": "Broadcom Q3",
+      "title": "Lam quarter ended Sep 27 results",
+      "url": "https://investor.lamresearch.com/2026-10-21-Lam-Research-Corporation-Reports-Financial-Results-for-the-Quarter-Ended-September-27,-2026",
+      "date": "2026-10-21"
+    },
+    {
+      "title": "Supermicro preliminary FY27 Q1",
+      "url": "https://ir.supermicro.com/news/news-details/2026/Supermicro-Provides-First-Quarter-of-Fiscal-Year-2027-Preliminary-Business-Update/default.aspx",
+      "date": "2026-10-20"
+    },
+    {
+      "title": "Broadcom Q3 fiscal 2026",
       "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-third-quarter-fiscal-year-2026-financial",
       "date": "2026-09-02"
     },
     {
       "title": "Microsoft Maia 300",
-      "url": "https://news.microsoft.com/source/emea/2026/10/microsoft-announces-maia-300-its-next-generation-custom-ai-chip",
+      "url": "https://news.microsoft.com/source/emea/2026/10/microsoft-announces-maia-300-its-next-generation-custom-ai-chip/",
       "date": "2026-10-12"
     },
     {
-      "title": "BLS CPI",
+      "title": "BLS Sep CPI",
       "url": "https://www.bls.gov/news.release/archives/cpi_10142026.htm",
       "date": "2026-10-14"
     },
     {
-      "title": "BLS PPI",
+      "title": "BLS Sep PPI",
       "url": "https://www.bls.gov/news.release/archives/ppi_10152026.htm",
       "date": "2026-10-15"
     },
     {
-      "title": "CoreWeave Q2",
-      "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/",
-      "date": "2026-08-11"
+      "title": "BIS China chip export license policy",
+      "url": "https://www.bis.gov/sites/default/files/documents/DoC%20Revises%20License%20Review%20Policy%20for%20Semiconductors%20Exports.pdf",
+      "date": "2026-01-13"
     },
     {
-      "title": "TrendForce optical fiber",
-      "url": "https://www.trendforce.com/presscenter/news/20261019-13275.html",
-      "date": "2026-10-19"
+      "title": "ChartMill SOXX completed Oct 21 indicators",
+      "url": "https://www.chartmill.com/stock/quote/SOXX/technical-analysis",
+      "date": "2026-10-21"
+    },
+    {
+      "title": "Benzinga CoreWeave 2031 yield",
+      "url": "https://www.benzinga.com/markets/tech/26/10/62470728/coreweave-bond-yields-15-5-percent-shares-17-month-lows",
+      "date": "2026-10-20"
+    },
+    {
+      "title": "Benzinga CoreWeave 2032 and 2031 notes",
+      "url": "https://www.benzinga.com/markets/bonds/26/10/62503267/coreweave-bonds-spacex-results-treasury-yield",
+      "date": "2026-10-21"
+    },
+    {
+      "title": "Reuters Nebius Citi facility",
+      "url": "https://www.reuters.com/technology/nebius-gets-35-billion-citi-facility-data-center-growth-2026-10-22/",
+      "date": "2026-10-22"
     }
   ]
 }
