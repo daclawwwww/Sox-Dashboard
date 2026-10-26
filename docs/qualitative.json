@@ -1,14 +1,14 @@
 {
   "status": "published",
-  "asof": "2026-10-22",
-  "published_utc": "2026-10-22T13:36:35.179Z",
-  "headline": "Meta raises 2026 capex floor; Lam/TSMC/ASML and memory demand resilient, but SOXX short-term momentum and AI credit recovery unconfirmed",
-  "overall": "PRICE-BLIND FIRST: Meta Oct 21 Q3 disclosed $34.91bn capex and 2026 capex outlook $135-145bn, versus prior $130-145bn. Microsoft Jul 29 disclosed $41bn quarter capex. TrendForce projects continued server memory price gains; Micron, TSMC, ASML and Lam published strong supplier results; point-in-time, constituent-weighted SOXX F12M EPS revisions NOT VERIFIED. Independent hypothesis: well-funded hyperscalers continue purchases while leveraged neocloud funding could constrain incremental orders; cancellations NOT verified. AFTER fundamentals: Oct 21 SOXX $510.36, below 20d SMA $550.69 and 50d SMA $535.44, above 200d SMA $470.53, RSI14 39.37, MACD -8.53 (ChartMill; provider-dependent). Oct 22 early 05:09 ET premarket quote $491.53 is stale, not a 09:32 regular-session print. Oct 21 CoreWeave 2032 notes yielded 14.68%; unsecured credit remains distressed; Nebius Oct 22 Citi $3.5bn secured/short-term facility signals selective access but not broad normalization. JOINT sustained SOXX momentum+AI credit improvement NOT confirmed; one-day rebound is insufficient. Forecast probabilities and baselines remain unchanged/unverified. No demonstrated qualitative forecast skill without prospective outcome scoring.",
+  "asof": "2026-10-26",
+  "published_utc": "2026-10-26T16:00:00Z",
+  "headline": "Anthropic S-1: strong AI monetization alongside inflexible advance compute commitments; financing risk unresolved",
+  "overall": "PRICE-BLIND FIRST: Meta Oct 21 Q3 disclosed $34.91bn capex and 2026 capex outlook $135-145bn, versus prior $130-145bn. Microsoft Jul 29 disclosed $41bn quarter capex. TrendForce projects continued server memory price gains; Micron, TSMC, ASML and Lam published strong supplier results; point-in-time, constituent-weighted SOXX F12M EPS revisions NOT VERIFIED. Independent hypothesis: well-funded hyperscalers continue purchases while leveraged neocloud funding could constrain incremental orders; cancellations NOT verified. AFTER fundamentals: Oct 21 SOXX $510.36, below 20d SMA $550.69 and 50d SMA $535.44, above 200d SMA $470.53, RSI14 39.37, MACD -8.53 (ChartMill; provider-dependent). Oct 22 early 05:09 ET premarket quote $491.53 is stale, not a 09:32 regular-session print. Oct 21 CoreWeave 2032 notes yielded 14.68%; unsecured credit remains distressed; Nebius Oct 22 Citi $3.5bn secured/short-term facility signals selective access but not broad normalization. JOINT sustained SOXX momentum+AI credit improvement NOT confirmed; one-day rebound is insufficient. Forecast probabilities and baselines remain unchanged/unverified. No demonstrated qualitative forecast skill without prospective outcome scoring. Oct26 Anthropic S-1 filed: H1 2026 revenue $16.286bn vs $1.163bn H1 2025; GAAP net loss $80.748bn largely reflects noncash convertible debt valuation, not operating cash burn. Compute is generally procured 12-18 months ahead under multi-year commitments, so demand-based receipts and fixed near-term cost may diverge. Hypothesis: expanding monetization supports chip demand, but future returns and orders remain exposed to slowing usage. Neither broad order cancellation nor sustained SOXX/AI-credit reversal is verified.",
   "factors": [
     {
       "name": "AI capex",
       "assessment": "Constructive disclosed spending; 2027 outlook uncertainty; confidence medium-high for published facts, medium for thesis",
-      "reason": "Verified: Meta Oct 21 Q3 capex including finance-lease principal $34.91bn; 2026 company outlook $135-145bn narrowed from $130-145bn. Microsoft Jul 29 quarter capex $41bn, about two-thirds CPUs/GPUs. Documented expectation: TrendForce Oct 14 estimates nine CSPs 2026 capex $957bn and 2027 >$1.5tn; inflation/advance payments inflate nominal totals. Independent hypothesis: cash-rich buyers maintain funded orders while highly leveraged builders delay marginal projects. Bull: AI monetization and cash generation improve. Bear: capital intensity exceeds ROI, construction and orders slip. Falsifiers: multiple comparable capex guide cuts OR continued funded deliveries with better FCF. Missing: comparable capex definitions, AI ROI, project delivery, customer mix."
+      "reason": "Verified: Meta Oct 21 Q3 capex including finance-lease principal $34.91bn; 2026 company outlook $135-145bn narrowed from $130-145bn. Microsoft Jul 29 quarter capex $41bn, about two-thirds CPUs/GPUs. Documented expectation: TrendForce Oct 14 estimates nine CSPs 2026 capex $957bn and 2027 >$1.5tn; inflation/advance payments inflate nominal totals. Independent hypothesis: cash-rich buyers maintain funded orders while highly leveraged builders delay marginal projects. Bull: AI monetization and cash generation improve. Bear: capital intensity exceeds ROI, construction and orders slip. Falsifiers: multiple comparable capex guide cuts OR continued funded deliveries with better FCF. Missing: comparable capex definitions, AI ROI, project delivery, customer mix. Anthropic Oct26 S-1 corroborates strong paid AI demand (H1 2026 $16.286bn revenue). Compute precommitted 12-18 months in advance, some multi-year minimum usage. Bull: scaling revenues cover committed cost. Bear: decelerating usage leaves excess contracted capacity. Falsifiers: subsequent filed compute-cost / revenue ratio and actual cash payments; missing reconciled future obligations and Q3 comparatives."
     },
     {
       "name": "Semiconductor cycle",
@@ -32,6 +32,7 @@
     }
   ],
   "risks": [
+    "Anthropic Oct26 S-1: precommitted multi-year computing capacity can constrain cash profitability despite strong revenue; large GAAP net loss mainly noncash convertible-debt accounting. Do not infer a SOXL entry or verified sector orders from filing alone.",
     "Credit watch: CoreWeave Oct 20 9.75% October 2031 notes yielded 15.58% per Benzinga (10:50 ET); Oct 21 approximate 15% in subsequent Benzinga report; the 9.625% July 2032 notes yielded 14.68% Oct 21. Approximate/not matched snapshots cannot demonstrate sustained credit improvement.",
     "Reuters Oct 22 11:02 UTC: Nebius obtained $3.5bn Citi 364-day facility at term SOFR+275bps for data-center/GPU purchases; positive selective funding, but short tenor adds refinancing risk, not a sign all borrowers have normalized access.",
     "SOXX Oct 21 completed-session recovery (+2.07%) did not repair trend below 20d/50d SMA or MACD. Oct 22 early premarket decline is an explicitly stale observation, not a verified 09:32 live quote.",
@@ -133,6 +134,11 @@
       "title": "Reuters Nebius Citi facility",
       "url": "https://www.reuters.com/technology/nebius-gets-35-billion-citi-facility-data-center-growth-2026-10-22/",
       "date": "2026-10-22"
+    },
+    {
+      "title": "Anthropic S-1 filed October 26 (SEC document reproduction)",
+      "url": "https://www.stocktitan.net/sec-filings/ANT/s-1-anthropic-pbc-files-s-1-registration-statement-a0477b41760e.html",
+      "date": "2026-10-26"
     }
   ]
 }
