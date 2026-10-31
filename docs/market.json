@@ -1,78 +1,77 @@
 {
-  "asof": "2026-10-29",
-  "generated_utc": "2026-10-30T02:00:39.786554+00:00",
+  "asof": "2026-10-30",
+  "generated_utc": "2026-10-31T01:39:26.204603+00:00",
   "source": "yfinance adjusted daily closes",
   "watchlist": [
     {
       "ticker": "SOXL",
-      "close": 102.39,
-      "day_pct": -4.62,
-      "week_pct": 24.7,
-      "drawdown_63_pct": -37.67
+      "close": 77.05,
+      "day_pct": -24.75,
+      "week_pct": -7.79,
+      "drawdown_63_pct": -53.1
     },
     {
       "ticker": "SOXX",
-      "close": 513.86,
-      "day_pct": -1.55,
-      "week_pct": 8.02,
-      "drawdown_63_pct": -12.83
+      "close": 471.51,
+      "day_pct": -8.24,
+      "week_pct": -1.4,
+      "drawdown_63_pct": -20.02
     },
     {
       "ticker": "SPY",
-      "close": 769.36,
-      "day_pct": -0.38,
-      "week_pct": 0.71,
-      "drawdown_63_pct": -1.25
+      "close": 755.72,
+      "day_pct": -1.77,
+      "week_pct": -0.56,
+      "drawdown_63_pct": -3.0
     },
     {
       "ticker": "NVDA",
-      "close": 213.66,
-      "day_pct": -0.8,
-      "week_pct": 0.68,
-      "drawdown_63_pct": -10.69
+      "close": 204.64,
+      "day_pct": -4.22,
+      "week_pct": -3.0,
+      "drawdown_63_pct": -14.46
     },
     {
       "ticker": "MU",
-      "close": 934.27,
-      "day_pct": -4.98,
-      "week_pct": 9.08,
-      "drawdown_63_pct": -14.85
+      "close": 884.74,
+      "day_pct": -5.3,
+      "week_pct": 0.82,
+      "drawdown_63_pct": -19.37
     },
     {
       "ticker": "AMD",
-      "close": 566.42,
-      "day_pct": -2.08,
-      "week_pct": 11.52,
-      "drawdown_63_pct": -12.78
+      "close": 504.8,
+      "day_pct": -10.88,
+      "week_pct": -2.32,
+      "drawdown_63_pct": -22.27
     },
     {
       "ticker": "AVGO",
-      "close": 345.0,
-      "day_pct": -1.94,
-      "week_pct": 6.73,
-      "drawdown_63_pct": -19.2
+      "close": 326.08,
+      "day_pct": -5.48,
+      "week_pct": 1.37,
+      "drawdown_63_pct": -23.63
     },
     {
       "ticker": "TSM",
-      "close": 431.81,
-      "day_pct": -1.75,
-      "week_pct": 4.72,
-      "drawdown_63_pct": -11.11
+      "close": 406.13,
+      "day_pct": -5.95,
+      "week_pct": -2.96,
+      "drawdown_63_pct": -16.4
     }
   ],
   "sox_reference": {
     "status": "available",
     "ticker": "^SOX",
-    "asof": "2026-10-29",
-    "close": 11518.2,
+    "asof": "2026-10-30",
+    "close": 10688.8,
     "above_ma50": false,
-    "above_ma200": true,
-    "return_20d_pct": -10.22,
+    "above_ma200": false,
+    "return_20d_pct": -18.63,
     "note": "Nasdaq PHLX SOX is independent confirmation only; SOXL tracks the NYSE Semiconductor Index."
   },
   "chart": {
     "soxl": [
-      49.348,
       47.359,
       47.749,
       48.548,
@@ -323,19 +322,20 @@
       90.5,
       101.08,
       107.35,
-      102.39
+      102.39,
+      77.05
     ]
   },
   "signal": {
-    "score": 4,
-    "regime": "NEUTRAL",
-    "opportunity": "PULLBACK WATCH",
-    "comment": "SOXX has corrected 5\u201315% from its 63-session high while its long-term trend remains constructive. Not an automatic buy.",
+    "score": 1,
+    "regime": "DEFENSIVE",
+    "opportunity": "WAIT / MONITOR",
+    "comment": "Predeclared momentum and pullback entry conditions are not met.",
     "components": [
       {
         "name": "SOXX above 200-day MA",
         "weight": 2,
-        "pass": true
+        "pass": false
       },
       {
         "name": "50-day MA above 200-day MA",
@@ -355,7 +355,7 @@
       {
         "name": "63-day momentum positive",
         "weight": 1,
-        "pass": true
+        "pass": false
       },
       {
         "name": "20-day relative performance vs SPY positive",
@@ -369,18 +369,18 @@
       "sample": "Full period",
       "strategy": "SOXL Buy & hold",
       "start_date": "2017-08-16",
-      "end_date": "2026-10-29",
-      "total_return_pct": 1576.9,
-      "cagr_pct": 35.9,
+      "end_date": "2026-10-30",
+      "total_return_pct": 1161.9,
+      "cagr_pct": 31.8,
       "max_drawdown_pct": -90.5,
-      "sharpe": 0.83,
+      "sharpe": 0.8,
       "exposure_pct": 100.0
     },
     {
       "sample": "Full period",
       "strategy": "Momentum",
       "start_date": "2017-08-16",
-      "end_date": "2026-10-29",
+      "end_date": "2026-10-30",
       "total_return_pct": 516.9,
       "cagr_pct": 21.9,
       "max_drawdown_pct": -65.3,
@@ -391,51 +391,51 @@
       "sample": "Full period",
       "strategy": "Dip + trend",
       "start_date": "2017-08-16",
-      "end_date": "2026-10-29",
-      "total_return_pct": -49.9,
-      "cagr_pct": -7.2,
-      "max_drawdown_pct": -78.9,
-      "sharpe": 0.09,
+      "end_date": "2026-10-30",
+      "total_return_pct": -62.3,
+      "cagr_pct": -10.1,
+      "max_drawdown_pct": -84.0,
+      "sharpe": 0.04,
       "exposure_pct": 20.0
     },
     {
       "sample": "Full period",
       "strategy": "Momentum + dip",
       "start_date": "2017-08-16",
-      "end_date": "2026-10-29",
-      "total_return_pct": 149.2,
-      "cagr_pct": 10.5,
+      "end_date": "2026-10-30",
+      "total_return_pct": 87.6,
+      "cagr_pct": 7.1,
       "max_drawdown_pct": -85.5,
-      "sharpe": 0.51,
+      "sharpe": 0.48,
       "exposure_pct": 63.1
     },
     {
       "sample": "First 70%",
       "strategy": "SOXL Buy & hold",
       "start_date": "2017-08-16",
-      "end_date": "2024-01-23",
-      "total_return_pct": 479.3,
-      "cagr_pct": 31.4,
+      "end_date": "2024-01-24",
+      "total_return_pct": 503.5,
+      "cagr_pct": 32.3,
       "max_drawdown_pct": -90.5,
-      "sharpe": 0.78,
+      "sharpe": 0.79,
       "exposure_pct": 99.9
     },
     {
       "sample": "First 70%",
       "strategy": "Momentum",
       "start_date": "2017-08-16",
-      "end_date": "2024-01-23",
-      "total_return_pct": 182.0,
-      "cagr_pct": 17.5,
+      "end_date": "2024-01-24",
+      "total_return_pct": 193.7,
+      "cagr_pct": 18.2,
       "max_drawdown_pct": -50.8,
-      "sharpe": 0.58,
+      "sharpe": 0.59,
       "exposure_pct": 43.7
     },
     {
       "sample": "First 70%",
       "strategy": "Dip + trend",
       "start_date": "2017-08-16",
-      "end_date": "2024-01-23",
+      "end_date": "2024-01-24",
       "total_return_pct": 66.6,
       "cagr_pct": 8.3,
       "max_drawdown_pct": -51.6,
@@ -446,55 +446,55 @@
       "sample": "First 70%",
       "strategy": "Momentum + dip",
       "start_date": "2017-08-16",
-      "end_date": "2024-01-23",
-      "total_return_pct": 323.7,
-      "cagr_pct": 25.2,
+      "end_date": "2024-01-24",
+      "total_return_pct": 341.4,
+      "cagr_pct": 26.0,
       "max_drawdown_pct": -64.2,
-      "sharpe": 0.67,
+      "sharpe": 0.68,
       "exposure_pct": 63.9
     },
     {
       "sample": "Last 30% (holdout)",
       "strategy": "SOXL Buy & hold",
-      "start_date": "2024-01-24",
-      "end_date": "2026-10-29",
-      "total_return_pct": 189.5,
-      "cagr_pct": 47.0,
+      "start_date": "2024-01-25",
+      "end_date": "2026-10-30",
+      "total_return_pct": 109.1,
+      "cagr_pct": 30.7,
       "max_drawdown_pct": -87.9,
-      "sharpe": 0.93,
+      "sharpe": 0.84,
       "exposure_pct": 100.0
     },
     {
       "sample": "Last 30% (holdout)",
       "strategy": "Momentum",
-      "start_date": "2024-01-24",
-      "end_date": "2026-10-29",
-      "total_return_pct": 118.8,
-      "cagr_pct": 32.8,
+      "start_date": "2024-01-25",
+      "end_date": "2026-10-30",
+      "total_return_pct": 110.0,
+      "cagr_pct": 30.9,
       "max_drawdown_pct": -65.3,
-      "sharpe": 0.77,
-      "exposure_pct": 44.2
+      "sharpe": 0.75,
+      "exposure_pct": 44.0
     },
     {
       "sample": "Last 30% (holdout)",
       "strategy": "Dip + trend",
-      "start_date": "2024-01-24",
-      "end_date": "2026-10-29",
-      "total_return_pct": -69.9,
-      "cagr_pct": -35.3,
-      "max_drawdown_pct": -74.9,
-      "sharpe": -0.53,
-      "exposure_pct": 17.7
+      "start_date": "2024-01-25",
+      "end_date": "2026-10-30",
+      "total_return_pct": -77.4,
+      "cagr_pct": -41.6,
+      "max_drawdown_pct": -80.8,
+      "sharpe": -0.67,
+      "exposure_pct": 17.8
     },
     {
       "sample": "Last 30% (holdout)",
       "strategy": "Momentum + dip",
-      "start_date": "2024-01-24",
-      "end_date": "2026-10-29",
-      "total_return_pct": -41.2,
-      "cagr_pct": -17.5,
+      "start_date": "2024-01-25",
+      "end_date": "2026-10-30",
+      "total_return_pct": -57.5,
+      "cagr_pct": -26.7,
       "max_drawdown_pct": -85.5,
-      "sharpe": 0.26,
+      "sharpe": 0.14,
       "exposure_pct": 61.2
     }
   ]
